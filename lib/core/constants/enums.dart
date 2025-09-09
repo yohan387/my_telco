@@ -1,6 +1,6 @@
 enum AppIconType { svg, png }
 
-enum OfferType { data, voice, mixed }
+enum OfferType { internet, voice, premium, weekend }
 
 enum ConsumptionType { call, sms, data }
 

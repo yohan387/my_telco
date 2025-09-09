@@ -18,21 +18,27 @@ class LocalOffersDataService implements ILocalOffersDataService {
 
     return data.map((item) {
       final type = item['type'] as String;
-      final offerType = type == 'data'
-          ? OfferType.data
-          : type == 'appel'
+      final offerType = type == 'pass_internet'
+          ? OfferType.internet
+          : type == 'pass_appels'
               ? OfferType.voice
-              : OfferType.mixed;
+              : type == 'pass_premium'
+                  ? OfferType.premium
+                  : OfferType.weekend;
+
+      final List<String> featuresString =
+          (item['fonctionnalites'] as List<dynamic>).cast<String>().toList();
 
       return Offer(
         id: item['id'] as String,
         name: item['nom_offre'] as String,
         description: item['description'] as String,
         price: item['prix'] as int,
-        validityDays: item['validite'] as int,
+        validityDays: item['nombre_de_jours_de_validite'] as int,
         type: offerType,
         isAvailable: item['est_disponible'] as bool,
         isPopular: item['est_populaire'] as bool,
+        features: featuresString,
       );
     }).toList();
   }

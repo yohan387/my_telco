@@ -1,52 +1,57 @@
 [
   {
-    "id": 1,
-    "nom_offre": "Forfait Découverte",
-    "description": "Idéal pour tester le service avec un volume limité.",
-    "prix": 500,
-    "validite": "1 jour",
-    "type": "data",
-    "est_disponible": true,
-    "est_populaire": false
-  },
-  {
-    "id": 2,
-    "nom_offre": "Forfait Semaine",
-    "description": "Connexion internet valable une semaine.",
-    "prix": 2500,
-    "validite": "7 jours",
-    "type": "data",
-    "est_disponible": true,
-    "est_populaire": true
-  },
-  {
-    "id": 3,
-    "nom_offre": "Forfait Appels Illimités",
-    "description": "Appels illimités vers tous les réseaux nationaux.",
+    "id": "1",
+    "nom_offre": "Pass Internet 5GB",
+    "description": "Naviguez sans limite avec 5Go de data.",
     "prix": 3000,
-    "validite": "3 jours",
-    "type": "appel",
+    "nombre_de_jours_de_validite": 15,
+    "type": "pass_internet",
     "est_disponible": true,
-    "est_populaire": true
+    "est_populaire": false,
+    "fonctionnalites": ["5BG de data", "4G/5G inclus", "Valable 15 jours"]
   },
   {
-    "id": 4,
-    "nom_offre": "Forfait Mixte",
-    "description": "Appels + SMS + Internet avec une validité mensuelle.",
-    "prix": 10000,
-    "validite": "30 jours",
-    "type": "mixte",
+    "id": "2",
+    "nom_offre": "Pass Internet 5GB",
+    "description": "Naviguez sans limite avec 5GB de data.",
+    "prix": 15000,
+    "nombre_de_jours_de_validite": 30,
+    "type": "pass_internet",
     "est_disponible": true,
-    "est_populaire": false
+    "est_populaire": true,
+    "fonctionnalites": ["10BG de data", "2h d'appel", "1000 SMS"]
   },
   {
-    "id": 5,
-    "nom_offre": "Forfait Nuit",
-    "description": "Connexion internet illimitée de minuit à 6h du matin.",
+    "id": "3",
+    "nom_offre": "Pass Appels Illimités",
+    "description": "Appelez autant que vous voulez",
+    "prix": 2500,
+    "nombre_de_jours_de_validite": 7,
+    "type": "pass_appels",
+    "est_disponible": true,
+    "est_populaire": false,
+    "fonctionnalites": ["Appels illimités", "Tous réseaux", "Valable 07 jours"]
+  },
+  {
+    "id": "4",
+    "nom_offre": "Pass Premium 20GB",
+    "description": "Pour les gros consommateurs de données.",
+    "prix": 30000,
+    "nombre_de_jours_de_validite": 30,
+    "type": "pass_premium",
+    "est_disponible": true,
+    "est_populaire": true,
+    "fonctionnalites": ["20GB de data", "5G Prioritaire", "Hotspot inclus"]
+  },
+  {
+    "id": "5",
+    "nom_offre": "Pass Weekend",
+    "description": "Parfait pour le week-end.",
     "prix": 1500,
-    "validite": "1 nuit",
-    "type": "data",
-    "est_disponible": false,
-    "est_populaire": false
+    "nombre_de_jours_de_validite": 3,
+    "type": "pass_weekend",
+    "est_disponible": true,
+    "est_populaire": false,
+    "fonctionnalites": ["5GB de data", "Instantanément"]
   }
 ]

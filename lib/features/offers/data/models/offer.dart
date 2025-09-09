@@ -7,9 +7,10 @@ class Offer extends Equatable {
   final String description;
   final int price;
   final int validityDays;
+  final OfferType type;
   final bool isAvailable;
   final bool isPopular;
-  final OfferType type;
+  final List<String> features;
 
   const Offer({
     required this.id,
@@ -20,6 +21,7 @@ class Offer extends Equatable {
     required this.type,
     required this.isAvailable,
     required this.isPopular,
+    this.features = const [],
   });
 
   @override
@@ -31,6 +33,7 @@ class Offer extends Equatable {
         validityDays,
         type,
         isAvailable,
-        isPopular
+        isPopular,
+        features,
       ];
 }
