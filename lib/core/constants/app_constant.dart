@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 enum AppIconType { svg, png }
 
+enum OfferType { data, voice, mixed }
+
+enum ConsumptionType { call, sms, data }
+
 class AppMenusTitle {
   static const String home = "Accueil";
   static const String offers = "Forfaits disponibles";
