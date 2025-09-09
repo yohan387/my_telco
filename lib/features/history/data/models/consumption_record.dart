@@ -6,18 +6,18 @@ import 'package:my_telco/core/constants/enums.dart';
 class ConsumptionRecord extends Equatable {
   final String id;
   final ConsumptionType type;
-  final double amount; // minutes, sms count, or MB
+  final double dataUsage;
   final DateTime date;
-  final String? details; // e.g. recipient number, call duration
+  final String? details;
 
   const ConsumptionRecord({
     required this.id,
     required this.type,
-    required this.amount,
+    required this.dataUsage,
     required this.date,
     this.details,
   });
 
   @override
-  List<Object?> get props => [id, type, amount, date, details];
+  List<Object?> get props => [id, type, dataUsage, date, details];
 }

@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:flutter/services.dart';
 import 'package:my_telco/features/history/data/models/consumption_record.dart';
 
 abstract interface class ILocalHistoryDataService {
@@ -7,6 +10,22 @@ abstract interface class ILocalHistoryDataService {
 class LocalHistoryDataService implements ILocalHistoryDataService {
   @override
   Future<List<ConsumptionRecord>> getConsumptionHistory() async {
-    return [];
+    final String response =
+        await rootBundle.loadString('assets/mock_data/history.json');
+
+    final data = jsonDecode(response) as Map<String, dynamic>;
+    final List<dynamic> history = data['history'];
+
+    return history
+        .map(
+          (item) => ConsumptionRecord(
+            id: item['id'],
+            type: item['type'],
+            dataUsage: item['donnees_utilisees'],
+            date: item['date'],
+            details: item['details'],
+          ),
+        )
+        .toList();
   }
 }

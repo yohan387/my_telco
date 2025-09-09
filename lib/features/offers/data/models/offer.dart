@@ -5,8 +5,10 @@ class Offer extends Equatable {
   final String id;
   final String name;
   final String description;
-  final double price;
-  final int validity; // in days
+  final int price;
+  final int validityDays;
+  final bool isAvailable;
+  final bool isPopular;
   final OfferType type;
 
   const Offer({
@@ -14,10 +16,21 @@ class Offer extends Equatable {
     required this.name,
     required this.description,
     required this.price,
-    required this.validity,
+    required this.validityDays,
     required this.type,
+    required this.isAvailable,
+    required this.isPopular,
   });
 
   @override
-  List<Object?> get props => [id, name, description, price, validity, type];
+  List<Object?> get props => [
+        id,
+        name,
+        description,
+        price,
+        validityDays,
+        type,
+        isAvailable,
+        isPopular
+      ];
 }

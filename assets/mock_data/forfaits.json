@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "nom_offre": "Forfait Découverte",
+    "description": "Idéal pour tester le service avec un volume limité.",
+    "prix": 500,
+    "validite": "1 jour",
+    "type": "data",
+    "est_disponible": true,
+    "est_populaire": false
+  },
+  {
+    "id": 2,
+    "nom_offre": "Forfait Semaine",
+    "description": "Connexion internet valable une semaine.",
+    "prix": 2500,
+    "validite": "7 jours",
+    "type": "data",
+    "est_disponible": true,
+    "est_populaire": true
+  },
+  {
+    "id": 3,
+    "nom_offre": "Forfait Appels Illimités",
+    "description": "Appels illimités vers tous les réseaux nationaux.",
+    "prix": 3000,
+    "validite": "3 jours",
+    "type": "appel",
+    "est_disponible": true,
+    "est_populaire": true
+  },
+  {
+    "id": 4,
+    "nom_offre": "Forfait Mixte",
+    "description": "Appels + SMS + Internet avec une validité mensuelle.",
+    "prix": 10000,
+    "validite": "30 jours",
+    "type": "mixte",
+    "est_disponible": true,
+    "est_populaire": false
+  },
+  {
+    "id": 5,
+    "nom_offre": "Forfait Nuit",
+    "description": "Connexion internet illimitée de minuit à 6h du matin.",
+    "prix": 1500,
+    "validite": "1 nuit",
+    "type": "data",
+    "est_disponible": false,
+    "est_populaire": false
+  }
+]

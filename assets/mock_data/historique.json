@@ -1,0 +1,39 @@
+{
+  "history": [
+    {
+      "id": "1",
+      "type": "data",
+      "donnees_utilisees": "250MB",
+      "date": "2025-09-01T10:30:00Z",
+      "details": "Navigation internet - YouTube"
+    },
+    {
+      "id": "2",
+      "type": "call",
+      "donnees_utilisees": "3min",
+      "date": "2025-09-01T09:15:00Z",
+      "details": "Appel vers +2250700000000"
+    },
+    {
+      "id": "3",
+      "type": "sms",
+      "donnees_utilisees": "1 SMS",
+      "date": "2025-08-31T20:45:00Z",
+      "details": "Envoi à +2250500000000"
+    },
+    {
+      "id": "4",
+      "type": "data",
+      "donnees_utilisees": "120MB",
+      "date": "2025-08-31T14:20:00Z",
+      "details": "Mise à jour d’applications"
+    },
+    {
+      "id": "5",
+      "type": "call",
+      "donnees_utilisees": "12min",
+      "date": "2025-08-30T18:05:00Z",
+      "details": "Appel vers +2250100000000"
+    }
+  ]
+}
