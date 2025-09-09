@@ -6,7 +6,7 @@ import 'package:my_telco/core/constants/enums.dart';
 class ConsumptionRecord extends Equatable {
   final String id;
   final ConsumptionType type;
-  final double dataUsage;
+  final String dataUsage;
   final DateTime date;
   final String? details;
 

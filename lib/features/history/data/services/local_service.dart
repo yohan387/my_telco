@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
+import 'package:my_telco/core/constants/enums.dart';
 import 'package:my_telco/features/history/data/models/consumption_record.dart';
 
 abstract interface class ILocalHistoryDataService {
@@ -20,9 +21,13 @@ class LocalHistoryDataService implements ILocalHistoryDataService {
         .map(
           (item) => ConsumptionRecord(
             id: item['id'],
-            type: item['type'],
+            type: item['type'] == 'data'
+                ? ConsumptionType.data
+                : item['type'] == 'appel'
+                    ? ConsumptionType.call
+                    : ConsumptionType.sms,
             dataUsage: item['donnees_utilisees'],
-            date: item['date'],
+            date: DateTime.parse(item['date']),
             details: item['details'],
           ),
         )
