@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:my_telco/core/constants/app_constant.dart';
+import 'package:my_telco/core/constants/menus_title.dart';
 
 part 'app_path_state.dart';
 

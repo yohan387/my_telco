@@ -43,8 +43,8 @@ class AppBottomNavigationBar extends StatelessWidget {
               NavigationDestination(
                 icon: AppSvgIcon(
                   icon: currentPageIndex == _PageIndex.dashboardPage
-                      ? AppSvgIconsData.homeActive
-                      : AppPngIconsData.homeInActive,
+                      ? AppAssetsSvgIcons.homeActive
+                      : AppAssetsPngIcons.homeInActive,
                   type: currentPageIndex == _PageIndex.dashboardPage
                       ? AppIconType.svg
                       : AppIconType.png,
@@ -55,8 +55,8 @@ class AppBottomNavigationBar extends StatelessWidget {
               NavigationDestination(
                 icon: AppSvgIcon(
                   icon: currentPageIndex == _PageIndex.offersPage
-                      ? AppSvgIconsData.offerActive
-                      : AppSvgIconsData.offerInActive,
+                      ? AppAssetsSvgIcons.offerActive
+                      : AppAssetsSvgIcons.offerInActive,
                   withBackground: currentPageIndex == _PageIndex.offersPage,
                 ),
                 label: 'Forfait',
@@ -64,8 +64,8 @@ class AppBottomNavigationBar extends StatelessWidget {
               NavigationDestination(
                 icon: AppSvgIcon(
                   icon: currentPageIndex == _PageIndex.subscriptionPage
-                      ? AppSvgIconsData.subscriptionActif
-                      : AppSvgIconsData.subscriptionInActive,
+                      ? AppAssetsSvgIcons.subscriptionActif
+                      : AppAssetsSvgIcons.subscriptionInActive,
                   withBackground:
                       currentPageIndex == _PageIndex.subscriptionPage,
                 ),
@@ -74,8 +74,8 @@ class AppBottomNavigationBar extends StatelessWidget {
               NavigationDestination(
                 icon: AppSvgIcon(
                   icon: currentPageIndex == _PageIndex.historyPage
-                      ? AppSvgIconsData.historyActif
-                      : AppSvgIconsData.historyInActive,
+                      ? AppAssetsSvgIcons.historyActif
+                      : AppAssetsSvgIcons.historyInActive,
                   withBackground: currentPageIndex == _PageIndex.historyPage,
                 ),
                 label: 'Historique',

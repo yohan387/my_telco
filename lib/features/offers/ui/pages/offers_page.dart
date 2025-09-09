@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_telco/core/common/states/app_path_cubit/app_path_cubit.dart';
-import 'package:my_telco/core/constants/app_constant.dart';
+import 'package:my_telco/core/constants/menus_title.dart';
 
 class OffersPage extends StatelessWidget {
   const OffersPage({super.key});

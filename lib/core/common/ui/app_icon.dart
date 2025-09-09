@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:my_telco/core/constants/app_constant.dart';
+import 'package:my_telco/core/constants/colors.dart';
+import 'package:my_telco/core/constants/enums.dart';
 
 class AppSvgIcon extends StatelessWidget {
   final String icon;

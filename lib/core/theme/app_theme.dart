@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_telco/core/constants/app_constant.dart';
+import 'package:my_telco/core/constants/colors.dart';
 import 'app_text_styles.dart';
 
 class AppTheme {

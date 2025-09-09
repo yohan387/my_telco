@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_telco/core/common/main_screen.dart';
+import 'package:my_telco/core/common/ui/main_screen.dart';
 import 'package:my_telco/core/common/states/app_path_cubit/app_path_cubit.dart';
 import 'package:my_telco/core/theme/app_theme.dart';
 

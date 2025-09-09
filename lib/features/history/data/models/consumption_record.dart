@@ -1,7 +1,7 @@
 // domain/entities/consumption_record.dart
 
 import 'package:equatable/equatable.dart';
-import 'package:my_telco/core/constants/app_constant.dart';
+import 'package:my_telco/core/constants/enums.dart';
 
 class ConsumptionRecord extends Equatable {
   final String id;

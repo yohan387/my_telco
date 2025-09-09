@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_telco/core/common/app_icon.dart';
+import 'package:my_telco/core/common/ui/app_icon.dart';
 import 'package:my_telco/core/common/states/app_path_cubit/app_path_cubit.dart';
-import 'package:my_telco/core/constants/app_constant.dart';
+import 'package:my_telco/core/constants/assets.dart';
+import 'package:my_telco/core/constants/enums.dart';
+import 'package:my_telco/core/constants/menus_title.dart';
 import 'package:my_telco/features/dashboard/ui/pages/dashboard.dart';
 import 'package:my_telco/features/history/ui/pages/history_page.dart';
 import 'package:my_telco/features/offers/ui/pages/offers_page.dart';
