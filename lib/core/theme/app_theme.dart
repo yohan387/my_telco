@@ -12,13 +12,15 @@ class AppTheme {
       titleTextStyle: AppTextStyles.heading2,
       iconTheme: IconThemeData(color: AppColors.orange),
     ),
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      type: BottomNavigationBarType.fixed,
+    navigationBarTheme: NavigationBarThemeData(
       elevation: 0,
       backgroundColor: AppColors.white,
-      selectedItemColor: AppColors.orange,
-      unselectedItemColor: AppColors.textPrimary,
-      showUnselectedLabels: true,
+      indicatorColor: AppColors.orangeGradiant2,
+      labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>(
+        (states) => states.contains(WidgetState.selected)
+            ? const TextStyle(color: AppColors.orange)
+            : const TextStyle(color: AppColors.textPrimary),
+      ),
     ),
   );
 }

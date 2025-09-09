@@ -31,13 +31,16 @@ class AppBottomNavigationBar extends StatelessWidget {
               ),
             ],
           ),
-          child: BottomNavigationBar(
-            currentIndex: currentPageIndex,
-            backgroundColor: Colors.transparent,
-            onTap: onTap,
-            selectedFontSize: 12,
-            items: [
-              BottomNavigationBarItem(
+          child: NavigationBar(
+            selectedIndex: currentPageIndex,
+            // backgroundColor: Colors.white,
+            onDestinationSelected: onTap,
+            // indicatorColor: AppColors.orangeGradiant2,
+            // shadowColor: Colors.black,
+            elevation: 32,
+
+            destinations: [
+              NavigationDestination(
                 icon: AppSvgIcon(
                   icon: currentPageIndex == _PageIndex.dashboardPage
                       ? AppSvgIconsData.homeActive
@@ -49,7 +52,7 @@ class AppBottomNavigationBar extends StatelessWidget {
                 ),
                 label: 'Accueil',
               ),
-              BottomNavigationBarItem(
+              NavigationDestination(
                 icon: AppSvgIcon(
                   icon: currentPageIndex == _PageIndex.offersPage
                       ? AppSvgIconsData.offerActive
@@ -58,7 +61,7 @@ class AppBottomNavigationBar extends StatelessWidget {
                 ),
                 label: 'Forfait',
               ),
-              BottomNavigationBarItem(
+              NavigationDestination(
                 icon: AppSvgIcon(
                   icon: currentPageIndex == _PageIndex.subscriptionPage
                       ? AppSvgIconsData.subscriptionActif
@@ -68,7 +71,7 @@ class AppBottomNavigationBar extends StatelessWidget {
                 ),
                 label: 'Mes pass',
               ),
-              BottomNavigationBarItem(
+              NavigationDestination(
                 icon: AppSvgIcon(
                   icon: currentPageIndex == _PageIndex.historyPage
                       ? AppSvgIconsData.historyActif
