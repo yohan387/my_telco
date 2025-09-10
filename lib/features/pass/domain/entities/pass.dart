@@ -3,13 +3,13 @@
 import 'package:equatable/equatable.dart';
 import 'package:my_telco/features/offers/data/models/offer.dart';
 
-class Subscription extends Equatable {
+class Pass extends Equatable {
   final String id;
   final Offer offer;
   final DateTime activationDate;
   final DateTime expirationDate;
 
-  const Subscription({
+  const Pass({
     required this.id,
     required this.offer,
     required this.activationDate,

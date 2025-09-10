@@ -4,8 +4,8 @@ import 'package:my_telco/core/common/states/app_path_cubit/app_path_cubit.dart';
 
 import 'package:my_telco/core/constants/menus_title.dart';
 
-class SubscriptionPage extends StatelessWidget {
-  const SubscriptionPage({super.key});
+class PassPage extends StatelessWidget {
+  const PassPage({super.key});
 
   @override
   Widget build(BuildContext context) {

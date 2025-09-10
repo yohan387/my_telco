@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:my_telco/core/constants/colors.dart';
-import 'app_text_styles.dart';
+import 'package:my_telco/core/constants/style.dart';
+import 'package:my_telco/core/theme/app_text_styles.dart';
 
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
+    useMaterial3: true,
     colorSchemeSeed: Colors.orange,
     scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
-    fontFamily: 'Roboto',
-    appBarTheme: const AppBarTheme(
+    fontFamily: AppTextStyles.fontFamily,
+    appBarTheme: AppBarTheme(
       backgroundColor: AppColors.white,
-      titleTextStyle: AppTextStyles.heading2,
-      iconTheme: IconThemeData(color: AppColors.orange),
+      scrolledUnderElevation: 1,
+      elevation: 0,
+      foregroundColor: AppColors.black,
+      surfaceTintColor: Colors.transparent,
+      shadowColor: AppColors.gray.withOpacity(0.2),
+      titleTextStyle: const TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+        color: AppColors.black,
+      ),
     ),
     navigationBarTheme: NavigationBarThemeData(
       elevation: 0,
@@ -19,7 +28,7 @@ class AppTheme {
       labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>(
         (states) => states.contains(WidgetState.selected)
             ? const TextStyle(color: AppColors.orange)
-            : const TextStyle(color: AppColors.textPrimary),
+            : const TextStyle(color: AppColors.black),
       ),
     ),
   );

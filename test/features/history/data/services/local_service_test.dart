@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:flutter/services.dart';
 import 'package:my_telco/core/constants/enums.dart';
-import 'package:my_telco/features/history/data/models/consumption_record.dart';
+import 'package:my_telco/features/history/domain/entities/consumption_record.dart';
 import 'package:my_telco/features/history/data/services/local_service.dart';
 
 void main() {
@@ -44,7 +44,7 @@ void main() {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMessageHandler('flutter/assets', (message) async {
         final key = channel.decodeMessage(message);
-        if (key == 'assets/mock_data/history.json') {
+        if (key == 'assets/mock_data/historique.json') {
           return channel.encodeMessage(fakeJson);
         }
         return null;

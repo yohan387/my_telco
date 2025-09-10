@@ -12,7 +12,7 @@
       "type": "data",
       "donnees_utilisees": "45 MB utilisés",
       "date": "2025-09-06T10:30:00Z",
-      "details": "Navigation internet - YouTube"
+      "details": null
     },
     {
       "id": "3",
@@ -33,7 +33,7 @@
       "type": "data",
       "donnees_utilisees": "103 MB utilisés",
       "date": "2025-09-08T14:20:00Z",
-      "details": ""
+      "details": null
     },
     {
       "id": "6",
@@ -54,7 +54,7 @@
       "type": "data",
       "donnees_utilisees": "198 MB utilisés",
       "date": "2025-09-08T14:20:00Z",
-      "details": ""
+      "details": null
     },
     {
       "id": "6",

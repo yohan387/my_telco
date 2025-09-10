@@ -9,6 +9,8 @@ class AppBottomNavigationBar extends StatelessWidget {
     required this.onTap,
   });
 
+  static const _iconColor = AppColors.orangeGradiant2;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,50 +35,53 @@ class AppBottomNavigationBar extends StatelessWidget {
           ),
           child: NavigationBar(
             selectedIndex: currentPageIndex,
-            // backgroundColor: Colors.white,
             onDestinationSelected: onTap,
-            // indicatorColor: AppColors.orangeGradiant2,
-            // shadowColor: Colors.black,
             elevation: 32,
-
             destinations: [
               NavigationDestination(
                 icon: AppSvgIcon(
-                  icon: currentPageIndex == _PageIndex.dashboardPage
-                      ? AppAssetsSvgIcons.homeActive
-                      : AppAssetsPngIcons.homeInActive,
+                  imgPath: currentPageIndex == _PageIndex.dashboardPage
+                      ? AppAssetsSvgIcons.homeOrange
+                      : AppAssetsPngIcons.home,
+                  color: currentPageIndex == _PageIndex.dashboardPage
+                      ? _iconColor
+                      : null,
                   type: currentPageIndex == _PageIndex.dashboardPage
                       ? AppIconType.svg
                       : AppIconType.png,
-                  withBackground: currentPageIndex == _PageIndex.dashboardPage,
                 ),
                 label: 'Accueil',
               ),
               NavigationDestination(
                 icon: AppSvgIcon(
-                  icon: currentPageIndex == _PageIndex.offersPage
-                      ? AppAssetsSvgIcons.offerActive
-                      : AppAssetsSvgIcons.offerInActive,
-                  withBackground: currentPageIndex == _PageIndex.offersPage,
+                  imgPath: currentPageIndex == _PageIndex.offersPage
+                      ? AppAssetsSvgIcons.offerOrange
+                      : AppAssetsSvgIcons.offer,
+                  color: currentPageIndex == _PageIndex.offersPage
+                      ? _iconColor
+                      : null,
                 ),
                 label: 'Forfait',
               ),
               NavigationDestination(
                 icon: AppSvgIcon(
-                  icon: currentPageIndex == _PageIndex.subscriptionPage
-                      ? AppAssetsSvgIcons.subscriptionActif
-                      : AppAssetsSvgIcons.subscriptionInActive,
-                  withBackground:
-                      currentPageIndex == _PageIndex.subscriptionPage,
+                  imgPath: currentPageIndex == _PageIndex.subscriptionPage
+                      ? AppAssetsSvgIcons.passOrange
+                      : AppAssetsSvgIcons.pass,
+                  color: currentPageIndex == _PageIndex.subscriptionPage
+                      ? _iconColor
+                      : null,
                 ),
                 label: 'Mes pass',
               ),
               NavigationDestination(
                 icon: AppSvgIcon(
-                  icon: currentPageIndex == _PageIndex.historyPage
-                      ? AppAssetsSvgIcons.historyActif
-                      : AppAssetsSvgIcons.historyInActive,
-                  withBackground: currentPageIndex == _PageIndex.historyPage,
+                  imgPath: currentPageIndex == _PageIndex.historyPage
+                      ? AppAssetsSvgIcons.historyOrange
+                      : AppAssetsSvgIcons.history,
+                  color: currentPageIndex == _PageIndex.historyPage
+                      ? _iconColor
+                      : null,
                 ),
                 label: 'Historique',
               ),

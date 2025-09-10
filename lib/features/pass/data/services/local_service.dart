@@ -1,15 +1,15 @@
 import 'package:my_telco/features/offers/data/models/offer.dart';
-import 'package:my_telco/features/subscriptions/data/models/active_pass.dart';
+import 'package:my_telco/features/pass/domain/entities/pass.dart';
 
 abstract interface class ILocalSubscriptionDataService {
-  Future<List<Subscription>> getActivePasses();
+  Future<List<Pass>> getActivePasses();
   Future<void> subscribeToOffer(Offer offer);
   Future<void> cancelPass();
 }
 
 class LocalSubscriptionDataService implements ILocalSubscriptionDataService {
   @override
-  Future<List<Subscription>> getActivePasses() async {
+  Future<List<Pass>> getActivePasses() async {
     return [];
   }
 

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:my_telco/core/constants/enums.dart';
-import 'package:my_telco/features/history/data/models/consumption_record.dart';
+import 'package:my_telco/features/history/domain/entities/consumption_record.dart';
 
 abstract interface class ILocalHistoryDataService {
   Future<List<ConsumptionRecord>> getConsumptionHistory();
@@ -12,7 +12,7 @@ class LocalHistoryDataService implements ILocalHistoryDataService {
   @override
   Future<List<ConsumptionRecord>> getConsumptionHistory() async {
     final String response =
-        await rootBundle.loadString('assets/mock_data/history.json');
+        await rootBundle.loadString('assets/mock_data/historique.json');
 
     final data = jsonDecode(response) as Map<String, dynamic>;
     final List<dynamic> history = data['history'];

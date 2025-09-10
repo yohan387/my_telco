@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_telco/core/common/ui/main_screen.dart';
 import 'package:my_telco/core/common/states/app_path_cubit/app_path_cubit.dart';
+import 'package:my_telco/core/dependencies/main_injection.dart';
 import 'package:my_telco/core/theme/app_theme.dart';
+import 'package:my_telco/features/history/ui/states/get_consumptions_history/get_consumptions_history_cubit.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initDependencies();
   runApp(const MainApp());
 }
 
@@ -16,6 +20,7 @@ class MainApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AppPathCubit()),
+        BlocProvider(create: (context) => sl<GetConsumptionsHistoryCubit>()),
       ],
       child: MaterialApp(
         theme: AppTheme.lightTheme,

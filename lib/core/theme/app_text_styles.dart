@@ -1,41 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:my_telco/core/constants/colors.dart';
+import 'package:my_telco/core/constants/style.dart';
 
 class AppTextStyles {
   static const String fontFamily = 'Roboto';
 
   static const TextStyle heading1 = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 24,
-    fontWeight: FontWeight.bold,
-    color: AppColors.textPrimary,
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    color: AppColors.black,
   );
 
   static const TextStyle heading2 = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: FontWeight.w600,
-    color: AppColors.textPrimary,
+    color: AppColors.black,
   );
 
-  static const TextStyle bodyText = TextStyle(
+  static const TextStyle bodyTextPrimary = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 16,
-    fontWeight: FontWeight.normal,
-    color: AppColors.textPrimary,
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    color: AppColors.black,
   );
 
   static const TextStyle bodyTextSecondary = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: FontWeight.normal,
-    color: AppColors.textSecondary,
+    color: AppColors.black,
   );
 
-  static const TextStyle button = TextStyle(
+  static const TextStyle bodyText3 = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 16,
-    fontWeight: FontWeight.bold,
-    color: AppColors.white,
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    color: AppColors.text3,
   );
 }

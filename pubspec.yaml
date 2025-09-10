@@ -12,11 +12,12 @@ dependencies:
   flutter_svg: ^2.1.0
   equatable: ^2.0.5
   bloc: ^8.1.4
-  get_it: ^7.7.0
+  get_it: ^8.2.0
   flutter_bloc: ^8.1.5
   dartz: ^0.10.1
   connectivity_plus: ^6.1.4
   http: ^1.4.0
+
 
 dev_dependencies:
   flutter_test:
@@ -27,4 +28,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/nav_bar/
+    - assets/history/
     - assets/mock_data/
