@@ -21,4 +21,14 @@ class GetOffersCubit extends Cubit<GetOffersState> {
       (records) => emit(GetOffersSuccess(records)),
     );
   }
+
+  void selectOffer(Offer offer) {
+    final currentState = state;
+    if (currentState is GetOffersSuccess) {
+      emit(GetOffersSuccess(
+        currentState.records,
+        selectedOffer: offer,
+      ));
+    }
+  }
 }

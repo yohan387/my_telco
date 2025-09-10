@@ -4,7 +4,7 @@ sealed class GetOffersState extends Equatable {
   const GetOffersState();
 
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [];
 }
 
 final class GetOffersInitial extends GetOffersState {
@@ -15,12 +15,14 @@ final class GetOffersLoading extends GetOffersState {
   const GetOffersLoading();
 }
 
-final class GetOffersSuccess extends GetOffersState {
+class GetOffersSuccess extends GetOffersState {
   final List<Offer> records;
-  const GetOffersSuccess(this.records);
+  final Offer? selectedOffer;
+
+  const GetOffersSuccess(this.records, {this.selectedOffer});
 
   @override
-  List<Object> get props => [records];
+  List<Object?> get props => [records, selectedOffer];
 }
 
 final class GetOffersFailure extends GetOffersState {

@@ -5,12 +5,18 @@ class AppButton extends StatelessWidget {
   final String label;
   final VoidCallback? onPressed;
   final bool isEnabled;
+  final Color backgroundColor;
+  final Color borderColor;
+  final Color textColor;
 
   const AppButton({
     super.key,
     required this.label,
     required this.onPressed,
     this.isEnabled = true,
+    this.backgroundColor = AppColors.orange,
+    this.borderColor = AppColors.transparent,
+    this.textColor = Colors.white,
   });
 
   @override
@@ -18,11 +24,11 @@ class AppButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor:
-            isEnabled ? AppColors.orange : AppColors.gray.withOpacity(0.1),
+            isEnabled ? backgroundColor : AppColors.grey.withOpacity(0.1),
         foregroundColor: Colors.white,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppRadius.xl),
-        ),
+            borderRadius: BorderRadius.circular(AppRadius.xl),
+            side: BorderSide(color: borderColor)),
         elevation: 0,
         shadowColor: Colors.transparent,
         minimumSize: const Size(double.maxFinite, 34),
@@ -32,7 +38,7 @@ class AppButton extends StatelessWidget {
       child: Text(
         label,
         style: Theme.of(context).textTheme.labelLarge?.copyWith(
-              color: isEnabled ? Colors.white : Colors.grey,
+              color: isEnabled ? textColor : Colors.grey,
               fontWeight: FontWeight.bold,
             ),
       ),

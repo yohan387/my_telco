@@ -32,3 +32,4 @@ flutter:
     - assets/history/
     - assets/mock_data/
     - assets/forfaits/
+    - assets/dashboard/

@@ -39,7 +39,7 @@ class AppBottomNavigationBar extends StatelessWidget {
             elevation: 32,
             destinations: [
               NavigationDestination(
-                icon: AppSvgIcon(
+                icon: AppIcon(
                   imgPath: currentPageIndex == _PageIndex.dashboardPage
                       ? AppAssetsSvgIcons.homeOrange
                       : AppAssetsPngIcons.home,
@@ -53,7 +53,7 @@ class AppBottomNavigationBar extends StatelessWidget {
                 label: 'Accueil',
               ),
               NavigationDestination(
-                icon: AppSvgIcon(
+                icon: AppIcon(
                   imgPath: currentPageIndex == _PageIndex.offersPage
                       ? AppAssetsSvgIcons.offerOrange
                       : AppAssetsSvgIcons.offer,
@@ -64,7 +64,7 @@ class AppBottomNavigationBar extends StatelessWidget {
                 label: 'Forfait',
               ),
               NavigationDestination(
-                icon: AppSvgIcon(
+                icon: AppIcon(
                   imgPath: currentPageIndex == _PageIndex.subscriptionPage
                       ? AppAssetsSvgIcons.passOrange
                       : AppAssetsSvgIcons.pass,
@@ -75,7 +75,7 @@ class AppBottomNavigationBar extends StatelessWidget {
                 label: 'Mes pass',
               ),
               NavigationDestination(
-                icon: AppSvgIcon(
+                icon: AppIcon(
                   imgPath: currentPageIndex == _PageIndex.historyPage
                       ? AppAssetsSvgIcons.historyOrange
                       : AppAssetsSvgIcons.history,

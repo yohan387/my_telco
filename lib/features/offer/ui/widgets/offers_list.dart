@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_telco/core/constants/menus_title.dart';
 import 'package:my_telco/core/constants/style.dart';
+import 'package:my_telco/features/common/states/app_path_cubit/app_path_cubit.dart';
+import 'package:my_telco/features/common/ui/app_button.dart';
 import 'package:my_telco/features/offer/ui/states/get_offers_cubit/get_offers_cubit.dart';
-import 'package:my_telco/features/offer/ui/widgets/offer_item.dart';
+import 'package:my_telco/features/offer/ui/widgets/offer_card.dart';
+import 'package:my_telco/features/offer/ui/widgets/offer_data_widget.dart';
 
 class OffersList extends StatefulWidget {
   const OffersList({super.key});
@@ -12,21 +16,35 @@ class OffersList extends StatefulWidget {
 }
 
 class _OffersListState extends State<OffersList> {
-  late final GetOffersCubit _getOffersCubit;
+  late final GetOffersCubit _offersCubit;
+  late final AppPathCubit _appPathCubit;
 
   @override
   void initState() {
     super.initState();
 
-    _getOffersCubit = context.read<GetOffersCubit>();
-    _getOffersCubit();
+    _offersCubit = context.read<GetOffersCubit>();
+    _appPathCubit = context.read<AppPathCubit>();
+    _offersCubit();
   }
 
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
-      onRefresh: () => _getOffersCubit(),
+      onRefresh: () => _offersCubit(),
       child: BlocConsumer<GetOffersCubit, GetOffersState>(
+        buildWhen: (previous, current) {
+          final hasStateTypeChanged =
+              previous.runtimeType != current.runtimeType;
+
+          final bothStateAreSuccess =
+              previous is GetOffersSuccess && current is GetOffersSuccess;
+
+          final hasRecordsChanged =
+              bothStateAreSuccess && previous.records != current.records;
+
+          return hasStateTypeChanged || hasRecordsChanged;
+        },
         listener: (context, state) {},
         builder: (context, state) {
           if (state is GetOffersLoading) {
@@ -46,9 +64,27 @@ class _OffersListState extends State<OffersList> {
                 top: AppPadding.xl,
               ),
               itemBuilder: (context, index) {
+                final offer = state.records[index];
                 return Padding(
                   padding: const EdgeInsets.only(bottom: AppPadding.xl),
-                  child: OfferItem(offer: state.records[index]),
+                  child: OfferCard(
+                    offer: state.records[index],
+                    child: Column(
+                      children: [
+                        OfferDataWidget(offer: offer),
+                        AppEmptySpace.verticalXl,
+                        AppButton(
+                          label: "Souscrire",
+                          onPressed: () {
+                            _appPathCubit
+                                .pushPage(AppMenus.selectedOfferDetail);
+                            _offersCubit.selectOffer(offer);
+                          },
+                          isEnabled: offer.isAvailable,
+                        ),
+                      ],
+                    ),
+                  ),
                 );
               },
             );

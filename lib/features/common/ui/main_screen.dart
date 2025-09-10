@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:my_telco/features/common/states/app_path_cubit/app_path_cubit.dart';
+import 'package:my_telco/features/common/ui/app_common_navigation_bar.dart';
 import 'package:my_telco/features/common/ui/app_icon.dart';
 import 'package:my_telco/core/constants/assets.dart';
 import 'package:my_telco/core/constants/enums.dart';
-import 'package:my_telco/core/constants/menus_title.dart';
 import 'package:my_telco/core/constants/style.dart';
 import 'package:my_telco/features/dashboard/ui/pages/dashboard.dart';
 import 'package:my_telco/features/history/ui/pages/history_page.dart';
@@ -41,23 +41,21 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<AppPathCubit, AppPathState>(
       builder: (context, state) {
-        final isOnHomePage = _cubit.state.currentPage == AppMenus.home;
-        final stackLength = _cubit.state.stacks[state.currentTabIndex].length;
         return PopScope(
           canPop: _canPop,
           onPopInvoked: (didPop) {
-            if (stackLength > 1) {
+            if (state.stackLength > 1) {
               setState(() => _canPop = false);
               _cubit.popPage();
-            } else if (stackLength == 1 && !isOnHomePage) {
+            } else if (state.stackLength == 1 && !state.isOnHomePage) {
               setState(() => _canPop = false);
               _cubit.setTab(0);
-            } else if (stackLength == 1 && isOnHomePage) {
+            } else if (state.stackLength == 1 && state.isOnHomePage) {
               setState(() => _canPop = true);
             }
           },
           child: Scaffold(
-            appBar: _buildAppBar(state, stackLength),
+            appBar: _buildAppBar(state.currentTabIndex),
             body: IndexedStack(
               index: state.currentTabIndex,
               children: _pages,
@@ -72,32 +70,13 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-  PreferredSizeWidget _buildAppBar(AppPathState state, int stackLength) {
-    switch (state.currentTabIndex) {
+  PreferredSizeWidget _buildAppBar(int currentTabIndex) {
+    switch (currentTabIndex) {
       case _PageIndex.dashboardPage:
         return AppBar();
 
       default:
-        return AppBar(
-          title: Text(state.currentPage),
-          leading: stackLength > 1
-              ? IconButton(
-                  color: AppColors.black,
-                  style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(AppColors.gray),
-                    shape: WidgetStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                  ),
-                  onPressed: _cubit.popPage,
-                  icon: const Icon(Icons.arrow_back_ios_rounded),
-                  iconSize: 20,
-                  alignment: Alignment.center,
-                )
-              : null,
-        );
+        return const AppCommonNavigationBar();
     }
   }
 }

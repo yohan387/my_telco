@@ -1,60 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_telco/core/constants/assets.dart';
 import 'package:my_telco/core/constants/enums.dart';
-import 'package:my_telco/core/utils/extensions.dart';
-import 'package:my_telco/features/common/states/app_path_cubit/app_path_cubit.dart';
-import 'package:my_telco/features/common/ui/app_button.dart';
-import 'package:my_telco/core/constants/menus_title.dart';
 import 'package:my_telco/core/constants/style.dart';
 import 'package:my_telco/core/theme/app_text_styles.dart';
+import 'package:my_telco/core/utils/extensions.dart';
 import 'package:my_telco/features/common/ui/app_icon.dart';
 import 'package:my_telco/features/offer/domain/entities/offer.dart';
 
-class OfferItem extends StatelessWidget {
+class OfferDataWidget extends StatelessWidget {
   final Offer offer;
-  const OfferItem({super.key, required this.offer});
+  const OfferDataWidget({super.key, required this.offer});
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<AppPathCubit>();
-
-    return Container(
-      padding: const EdgeInsets.all(AppPadding.large),
-      decoration: BoxDecoration(
-          color: _mainBackgroundColor,
-          borderRadius: BorderRadius.circular(AppRadius.xl),
-          boxShadow: const [
-            BoxShadow(
-              color: AppColors.gray,
-              blurRadius: 2,
-            )
-          ]),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildTitle(),
-          _buildDescription(),
-          AppEmptySpace.verticalXl,
-          _buildFeatures(),
-          AppEmptySpace.verticalXl,
-          Text(
-            offer.price.formatAsAmount(),
-            style: AppTextStyles.heading1,
-          ),
-          Text(
-            offer.validityDays,
-            style: AppTextStyles.bodyText3,
-          ),
-          AppEmptySpace.verticalXl,
-          AppButton(
-            label: "Souscrire",
-            onPressed: () => cubit.pushPage(AppMenus.selectedOfferDetail),
-            isEnabled: offer.isAvailable,
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildTitle(),
+        _buildDescription(),
+        AppEmptySpace.verticalXl,
+        _buildFeatures(),
+        AppEmptySpace.verticalXl,
+        Text(
+          offer.price.formatAsAmount(),
+          style: AppTextStyles.heading1,
+        ),
+        Text(
+          offer.validityDays,
+          style: AppTextStyles.bodyText3,
+        ),
+      ],
     );
   }
 
@@ -122,39 +98,36 @@ class OfferItem extends StatelessWidget {
     );
   }
 
-  AppSvgIcon get _icon {
+  AppIcon get _icon {
     switch (offer.type) {
       case OfferType.voice:
-        return const AppSvgIcon(
+        return const AppIcon(
           imgPath: AppAssetsSvgIcons.callOrange,
           color: AppColors.orangeGradiant3,
         );
       case OfferType.internet:
         if (offer.isPopular) {
-          return const AppSvgIcon(
+          return const AppIcon(
             imgPath: AppAssetsSvgIcons.all,
             color: AppColors.orangeGradiant3,
           );
         }
-        return const AppSvgIcon(
+        return const AppIcon(
           imgPath: AppAssetsSvgIcons.doubleArrow,
           color: AppColors.orangeGradiant3,
         );
       case OfferType.premium:
-        return const AppSvgIcon(
+        return const AppIcon(
           imgPath: AppAssetsSvgIcons.all,
           color: AppColors.orangeGradiant3,
         );
       case OfferType.weekend:
-        return const AppSvgIcon(
+        return const AppIcon(
           imgPath: AppAssetsSvgIcons.wifiOrange,
           color: AppColors.orangeGradiant3,
         );
     }
   }
-
-  Color get _mainBackgroundColor =>
-      offer.isPopular ? AppColors.orangeGradiant4 : AppColors.white;
 
   Color get _featureBackgroundColor =>
       offer.isPopular ? AppColors.white : AppColors.grayGradiant2;

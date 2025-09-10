@@ -44,7 +44,7 @@ class AppOptionsChipsSelector<T> extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-          side: const BorderSide(color: AppColors.gray),
+          side: const BorderSide(color: AppColors.grey),
           onSelected: (_) => onChanged(opt.value),
         );
       }).toList(),

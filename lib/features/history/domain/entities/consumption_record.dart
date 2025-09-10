@@ -19,20 +19,20 @@ class ConsumptionRecord extends Equatable {
     this.details,
   });
 
-  AppSvgIcon get icon {
+  AppIcon get icon {
     switch (type) {
       case ConsumptionType.call:
-        return const AppSvgIcon(
+        return const AppIcon(
           imgPath: AppAssetsSvgIcons.callOrange,
           color: AppColors.orangeGradiant3,
         );
       case ConsumptionType.sms:
-        return const AppSvgIcon(
+        return const AppIcon(
           imgPath: AppAssetsSvgIcons.smsOrange,
           color: AppColors.orangeGradiant3,
         );
       case ConsumptionType.data:
-        return const AppSvgIcon(
+        return const AppIcon(
           imgPath: AppAssetsSvgIcons.wifiOrange,
           color: AppColors.orangeGradiant3,
         );

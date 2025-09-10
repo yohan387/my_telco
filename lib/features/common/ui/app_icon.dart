@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_telco/core/constants/enums.dart';
 
-class AppSvgIcon extends StatelessWidget {
+class AppIcon extends StatelessWidget {
   final String imgPath;
   final double size;
   final Color? color;
   final AppIconType type;
 
-  const AppSvgIcon({
+  const AppIcon({
     super.key,
     required this.imgPath,
     this.size = 22,

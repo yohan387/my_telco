@@ -85,7 +85,7 @@ class _HistoryPageState extends State<HistoryPage> {
         AppOptionChipsItem(
           value: ConsumptionType.call,
           label: "Appel",
-          icon: AppSvgIcon(
+          icon: AppIcon(
             imgPath: _selectedConsumptionType == ConsumptionType.call
                 ? AppAssetsSvgIcons.callOrange
                 : AppAssetsSvgIcons.call,
@@ -94,7 +94,7 @@ class _HistoryPageState extends State<HistoryPage> {
         AppOptionChipsItem(
           value: ConsumptionType.data,
           label: "Internet",
-          icon: AppSvgIcon(
+          icon: AppIcon(
             imgPath: _selectedConsumptionType == ConsumptionType.data
                 ? AppAssetsSvgIcons.wifiOrange
                 : AppAssetsSvgIcons.wifi,
@@ -103,7 +103,7 @@ class _HistoryPageState extends State<HistoryPage> {
         AppOptionChipsItem(
           value: ConsumptionType.sms,
           label: "sms",
-          icon: AppSvgIcon(
+          icon: AppIcon(
             imgPath: _selectedConsumptionType == ConsumptionType.sms
                 ? AppAssetsSvgIcons.smsOrange
                 : AppAssetsSvgIcons.sms,

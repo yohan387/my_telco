@@ -39,7 +39,7 @@ class ConsumtionRecordWidget extends StatelessWidget {
               ),
             ],
           ),
-          const Divider(color: AppColors.gray, height: 12),
+          const Divider(color: AppColors.grey, height: 12),
           Text(
             item.date.toIso8601String(),
             style: AppTextStyles.bodyText3,

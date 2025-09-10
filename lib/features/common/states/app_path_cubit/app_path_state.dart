@@ -21,6 +21,10 @@ class AppPathState extends Equatable {
 
   String get currentPage => stacks[currentTabIndex].last;
 
+  int get stackLength => stacks[currentTabIndex].length;
+
+  bool get isOnHomePage => currentPage == AppMenus.home;
+
   @override
   List<Object?> get props => [
         currentTabIndex,

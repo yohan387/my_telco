@@ -42,7 +42,7 @@ class AppTextStyles {
   static const TextStyle bodyText3 = TextStyle(
     fontFamily: fontFamily,
     fontSize: 14,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.w600,
     color: AppColors.text3,
   );
 }

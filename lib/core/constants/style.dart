@@ -57,7 +57,7 @@ abstract final class AppColors {
   static const Color text3 = Color.fromARGB(255, 136, 132, 132);
 
   static const Color white = Colors.white;
-  static const Color gray = Color.fromARGB(255, 238, 233, 233);
+  static const Color grey = Color.fromARGB(255, 238, 233, 233);
   static const Color grayGradiant2 = Color.fromARGB(255, 243, 243, 243);
 
   static const Color error = Colors.redAccent;

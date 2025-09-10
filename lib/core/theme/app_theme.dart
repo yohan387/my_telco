@@ -14,7 +14,7 @@ class AppTheme {
       elevation: 0,
       foregroundColor: AppColors.black,
       surfaceTintColor: Colors.transparent,
-      shadowColor: AppColors.gray.withOpacity(0.2),
+      shadowColor: AppColors.grey.withOpacity(0.2),
       titleTextStyle: const TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.bold,
