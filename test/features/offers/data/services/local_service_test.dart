@@ -1,16 +1,16 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:my_telco/features/offers/data/models/offer.dart';
-import 'package:my_telco/features/offers/data/services/local_service.dart';
+import 'package:my_telco/features/offer/domain/entities/offer.dart';
+import 'package:my_telco/features/offer/data/services/local_service.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  group('LocalOffersDataService', () {
-    late LocalOffersDataService service;
+  group('LocalOfferDataService', () {
+    late LocalOfferDataService service;
 
     setUp(() {
-      service = LocalOffersDataService();
+      service = LocalOfferDataService();
     });
 
     test('getAvailableOffers should return a list of Offer from JSON',
@@ -27,7 +27,12 @@ void main() {
           "type": "pass_internet",
           "est_disponible": true,
           "est_populaire": false,
-          "fonctionnalites": ["5BG de data", "4G/5G inclus", "Valable 15 jours"]
+          "indication_speciale": null,
+          "fonctionnalites": [
+            "5BG de data",
+            "4G/5G inclus",
+            "Valable 15 jours"
+          ]
         },
         {
           "id": "2",
@@ -38,7 +43,12 @@ void main() {
           "type": "pass_internet",
           "est_disponible": true,
           "est_populaire": true,
-          "fonctionnalites": ["10BG de data", "2h d'appel", "1000 SMS"]
+          "indication_speciale": "Forfait Populaire",
+          "fonctionnalites": [
+            "10BG de data",
+            "2h d'appel",
+            "1000 SMS"
+          ]
         }
       ]
       ''';
@@ -67,6 +77,7 @@ void main() {
       expect(first.price, 3000);
       expect(first.isAvailable, true);
       expect(first.isPopular, false);
+      expect(first.specialIndication, null);
       expect(
           first.features, ["5BG de data", "4G/5G inclus", "Valable 15 jours"]);
 
@@ -76,6 +87,7 @@ void main() {
       expect(second.price, 15000);
       expect(second.isAvailable, true);
       expect(second.isPopular, true);
+      expect(second.specialIndication, "Forfait Populaire");
       expect(second.features, ["10BG de data", "2h d'appel", "1000 SMS"]);
     });
   });

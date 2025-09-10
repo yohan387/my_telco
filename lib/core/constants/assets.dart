@@ -1,5 +1,6 @@
 const String _navBarBase = "assets/nav_bar";
 const String _historyBase = "assets/history";
+const String _offerBase = "assets/forfaits";
 
 abstract final class AppAssetsSvgIcons {
   static const String homeOrange = '$_navBarBase/accueil_orange.svg';
@@ -16,6 +17,12 @@ abstract final class AppAssetsSvgIcons {
   static const String smsOrange = '$_historyBase/sms_orange.svg';
   static const String wifi = '$_historyBase/wifi.svg';
   static const String wifiOrange = '$_historyBase/wifi_orange.svg';
+
+  static const String callTo = '$_offerBase/appel_vers.svg';
+  static const String calendar = '$_offerBase/calendrier.svg';
+  static const String expiration = '$_offerBase/expiration.svg';
+  static const String doubleArrow = '$_offerBase/pass.svg';
+  static const String all = '$_offerBase/tous.svg';
 }
 
 abstract final class AppAssetsPngIcons {

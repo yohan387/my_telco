@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:my_telco/core/common/states/app_path_cubit/app_path_cubit.dart';
-import 'package:my_telco/core/common/ui/app_icon.dart';
+import 'package:my_telco/features/common/states/app_path_cubit/app_path_cubit.dart';
+import 'package:my_telco/features/common/ui/app_icon.dart';
 import 'package:my_telco/core/constants/assets.dart';
 import 'package:my_telco/core/constants/enums.dart';
 import 'package:my_telco/core/constants/menus_title.dart';
 import 'package:my_telco/core/constants/style.dart';
 import 'package:my_telco/features/dashboard/ui/pages/dashboard.dart';
 import 'package:my_telco/features/history/ui/pages/history_page.dart';
-import 'package:my_telco/features/offers/ui/pages/offers_page.dart';
+import 'package:my_telco/features/offer/ui/pages/offer_page.dart';
 import 'package:my_telco/features/pass/ui/pages/pass_page.dart';
 
 part 'bottom_navigation_bar.dart';
@@ -22,45 +22,49 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  late final AppPathCubit _cubit;
+  bool _canPop = false;
   final List<Widget> _pages = const [
     DashboardPage(),
-    OffersPage(),
+    OfferPage(),
     PassPage(),
     HistoryPage(),
   ];
 
-  bool _canPop = false;
+  @override
+  void initState() {
+    super.initState();
+    _cubit = context.read<AppPathCubit>();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<AppPathCubit>();
-
     return BlocBuilder<AppPathCubit, AppPathState>(
       builder: (context, state) {
-        final isOnHomePage = cubit.state.currentPage == AppMenusTitle.home;
-        final stackLength = cubit.state.stacks[state.currentTabIndex].length;
+        final isOnHomePage = _cubit.state.currentPage == AppMenus.home;
+        final stackLength = _cubit.state.stacks[state.currentTabIndex].length;
         return PopScope(
           canPop: _canPop,
           onPopInvoked: (didPop) {
             if (stackLength > 1) {
               setState(() => _canPop = false);
-              cubit.popPage();
+              _cubit.popPage();
             } else if (stackLength == 1 && !isOnHomePage) {
               setState(() => _canPop = false);
-              cubit.setTab(0);
+              _cubit.setTab(0);
             } else if (stackLength == 1 && isOnHomePage) {
               setState(() => _canPop = true);
             }
           },
           child: Scaffold(
-            appBar: _buildAppBar(state),
+            appBar: _buildAppBar(state, stackLength),
             body: IndexedStack(
               index: state.currentTabIndex,
               children: _pages,
             ),
             bottomNavigationBar: AppBottomNavigationBar(
               currentPageIndex: state.currentTabIndex,
-              onTap: cubit.setTab,
+              onTap: _cubit.setTab,
             ),
           ),
         );
@@ -68,13 +72,32 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-  PreferredSizeWidget _buildAppBar(AppPathState state) {
+  PreferredSizeWidget _buildAppBar(AppPathState state, int stackLength) {
     switch (state.currentTabIndex) {
       case _PageIndex.dashboardPage:
         return AppBar();
 
       default:
-        return AppBar(title: Text(state.currentPage));
+        return AppBar(
+          title: Text(state.currentPage),
+          leading: stackLength > 1
+              ? IconButton(
+                  color: AppColors.black,
+                  style: ButtonStyle(
+                    backgroundColor: WidgetStateProperty.all(AppColors.gray),
+                    shape: WidgetStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                  ),
+                  onPressed: _cubit.popPage,
+                  icon: const Icon(Icons.arrow_back_ios_rounded),
+                  iconSize: 20,
+                  alignment: Alignment.center,
+                )
+              : null,
+        );
     }
   }
 }

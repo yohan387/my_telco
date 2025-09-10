@@ -44,10 +44,11 @@ abstract final class AppRadius {
 }
 
 abstract final class AppColors {
-  static const Color orange = Color.fromARGB(255, 229, 110, 30);
+  static const Color orange = Color.fromARGB(255, 255, 121, 32);
   static const Color orangeGradiant1 = Color.fromARGB(255, 235, 140, 77);
   static const Color orangeGradiant2 = Color.fromARGB(255, 255, 237, 202);
   static const Color orangeGradiant3 = Color.fromARGB(255, 255, 241, 236);
+  static const Color orangeGradiant4 = Color.fromARGB(255, 253, 220, 205);
 
   static const Color scaffoldBackgroundColor =
       Color.fromARGB(255, 247, 247, 247);
@@ -57,6 +58,7 @@ abstract final class AppColors {
 
   static const Color white = Colors.white;
   static const Color gray = Color.fromARGB(255, 238, 233, 233);
+  static const Color grayGradiant2 = Color.fromARGB(255, 243, 243, 243);
 
   static const Color error = Colors.redAccent;
   static const Color transparent = Colors.transparent;

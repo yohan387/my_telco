@@ -1,7 +1,7 @@
 // domain/entities/active_pass.dart
 
 import 'package:equatable/equatable.dart';
-import 'package:my_telco/features/offers/data/models/offer.dart';
+import 'package:my_telco/features/offer/domain/entities/offer.dart';
 
 class Pass extends Equatable {
   final String id;

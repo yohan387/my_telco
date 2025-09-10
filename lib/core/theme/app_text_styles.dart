@@ -6,8 +6,8 @@ class AppTextStyles {
 
   static const TextStyle heading1 = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 18,
-    fontWeight: FontWeight.w500,
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
     color: AppColors.black,
   );
 
@@ -29,6 +29,13 @@ class AppTextStyles {
     fontFamily: fontFamily,
     fontSize: 12,
     fontWeight: FontWeight.normal,
+    color: AppColors.black,
+  );
+
+  static const TextStyle cardTitle = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
     color: AppColors.black,
   );
 

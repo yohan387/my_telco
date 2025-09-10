@@ -5,7 +5,7 @@
       "type": "appel",
       "donnees_utilisees": "12 min",
       "date": "2025-09-05T09:15:00Z",
-      "details": "A : +2250700000000"
+      "details": "+2250700000000"
     },
     {
       "id": "2",
@@ -19,14 +19,14 @@
       "type": "sms",
       "donnees_utilisees": "03 SMS envoyés",
       "date": "2025-09-07T20:45:00Z",
-      "details": "A : +2250700000000"
+      "details": "+2250700000000"
     },
     {
       "id": "4",
       "type": "appel",
       "donnees_utilisees": "45 secondes",
       "date": "2025-09-08T18:05:00Z",
-      "details": "A : +2250700000000"
+      "details": "+2250700000000"
     },
     {
       "id": "5",
@@ -40,14 +40,14 @@
       "type": "sms",
       "donnees_utilisees": "02 SMS envoyés",
       "date": "2025-09-08T20:45:00Z",
-      "details": "A : +2250700000000"
+      "details": "+2250700000000"
     },
     {
       "id": "7",
       "type": "appel",
       "donnees_utilisees": "05 secondes",
       "date": "2025-09-12T18:05:00Z",
-      "details": "A : +2250700000000"
+      "details": "+2250700000000"
     },
     {
       "id": "8",
@@ -61,7 +61,7 @@
       "type": "sms",
       "donnees_utilisees": "19 SMS envoyés",
       "date": "2025-09-08T20:45:00Z",
-      "details": "A : +2250700000000"
+      "details": "+2250700000000"
     }
   ]
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_telco/core/common/ui/app_icon.dart';
+import 'package:my_telco/features/common/ui/app_icon.dart';
 import 'package:my_telco/core/constants/assets.dart';
 
 import 'package:my_telco/core/constants/enums.dart';
@@ -20,7 +20,7 @@ class HistoryPage extends StatefulWidget {
 }
 
 class _HistoryPageState extends State<HistoryPage> {
-  GetConsumptionsHistoryCubit? _getConsumptionCubit;
+  late GetConsumptionsHistoryCubit _getConsumptionCubit;
   ConsumptionType? _selectedConsumptionType;
   List<ConsumptionRecord> _consumptionRecords = [];
 
@@ -28,14 +28,14 @@ class _HistoryPageState extends State<HistoryPage> {
   void initState() {
     super.initState();
     _getConsumptionCubit = context.read<GetConsumptionsHistoryCubit>();
-    _getConsumptionCubit!();
+    _getConsumptionCubit();
   }
 
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
       triggerMode: RefreshIndicatorTriggerMode.anywhere,
-      onRefresh: () => _getConsumptionCubit!(),
+      onRefresh: () => _getConsumptionCubit(),
       child: BlocConsumer<GetConsumptionsHistoryCubit,
           GetConsumptionsHistoryState>(
         listener: (context, state) {
@@ -59,7 +59,7 @@ class _HistoryPageState extends State<HistoryPage> {
                 children: [
                   const Text(
                     "Activités récentes",
-                    style: AppTextStyles.heading1,
+                    style: AppTextStyles.heading2,
                   ),
                   AppEmptySpace.verticalSmall,
                   _buildFilters(),
@@ -114,10 +114,7 @@ class _HistoryPageState extends State<HistoryPage> {
       onChanged: (value) {
         setState(() {
           _selectedConsumptionType = value;
-          final filteredRecords = _getConsumptionCubit!.filterByType(value);
-          setState(() {
-            _consumptionRecords = filteredRecords;
-          });
+          _consumptionRecords = _getConsumptionCubit.filterByType(value);
         });
       },
     );

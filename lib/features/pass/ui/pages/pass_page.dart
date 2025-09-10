@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_telco/core/common/states/app_path_cubit/app_path_cubit.dart';
+import 'package:my_telco/features/common/states/app_path_cubit/app_path_cubit.dart';
 
 import 'package:my_telco/core/constants/menus_title.dart';
 
@@ -12,14 +12,14 @@ class PassPage extends StatelessWidget {
     final cubit = context.read<AppPathCubit>();
     return BlocBuilder<AppPathCubit, AppPathState>(
       builder: (context, state) {
-        if (cubit.state.currentPage == AppMenusTitle.subscriptions) {
+        if (cubit.state.currentPage == AppMenus.subscriptions) {
           return Center(
             child: ElevatedButton(
-              onPressed: () => cubit.pushPage(AppMenusTitle.cancelPass),
+              onPressed: () => cubit.pushPage(AppMenus.cancelPass),
               child: const Text("Résilier pass"),
             ),
           );
-        } else if (cubit.state.currentPage == AppMenusTitle.cancelPass) {
+        } else if (cubit.state.currentPage == AppMenus.cancelPass) {
           return Row(
             children: [
               ElevatedButton(

@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 extension PhoneNumberFormatter on String {
   /// Format a string as a phone number, preserving the international prefix (e.g. '+225', '00225', '+33', '0033')
   /// and formatting only the local part: '0123456789' -> '01 23 45 67 89', '+2250123456789' -> '+225 01 23 45 67 89'
@@ -23,5 +25,12 @@ extension PhoneNumberFormatter on String {
     } else {
       return buffer.toString();
     }
+  }
+}
+
+extension Format on int {
+  String formatAsAmount() {
+    final formattedValue = NumberFormat.decimalPattern('fr').format(this);
+    return "$formattedValue FCFA";
   }
 }

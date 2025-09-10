@@ -8,7 +8,12 @@
     "type": "pass_internet",
     "est_disponible": true,
     "est_populaire": false,
-    "fonctionnalites": ["5BG de data", "4G/5G inclus", "Valable 15 jours"]
+    "indication_speciale": null,
+    "fonctionnalites": [
+      "5BG de data",
+      "4G/5G inclus",
+      "Valable 15 jours"
+    ]
   },
   {
     "id": "2",
@@ -19,7 +24,12 @@
     "type": "pass_internet",
     "est_disponible": true,
     "est_populaire": true,
-    "fonctionnalites": ["10BG de data", "2h d'appel", "1000 SMS"]
+    "indication_speciale": "Forfait Populaire",
+    "fonctionnalites": [
+      "10BG de data",
+      "2h d'appel",
+      "1000 SMS"
+    ]
   },
   {
     "id": "3",
@@ -30,7 +40,12 @@
     "type": "pass_appels",
     "est_disponible": true,
     "est_populaire": false,
-    "fonctionnalites": ["Appels illimités", "Tous réseaux", "Valable 07 jours"]
+    "indication_speciale": null,
+    "fonctionnalites": [
+      "Appels illimités",
+      "Tous réseaux",
+      "Valable 07 jours"
+    ]
   },
   {
     "id": "4",
@@ -40,8 +55,13 @@
     "nombre_de_jours_de_validite": 30,
     "type": "pass_premium",
     "est_disponible": true,
-    "est_populaire": true,
-    "fonctionnalites": ["20GB de data", "5G Prioritaire", "Hotspot inclus"]
+    "est_populaire": false,
+    "indication_speciale": null,
+    "fonctionnalites": [
+      "20GB de data",
+      "5G Prioritaire",
+      "Hotspot inclus"
+    ]
   },
   {
     "id": "5",
@@ -50,8 +70,12 @@
     "prix": 1500,
     "nombre_de_jours_de_validite": 3,
     "type": "pass_weekend",
-    "est_disponible": true,
+    "est_disponible": false,
     "est_populaire": false,
-    "fonctionnalites": ["5GB de data", "Instantanément"]
+    "indication_speciale": "Valable que le weekend",
+    "fonctionnalites": [
+      "5GB de data",
+      "Instantanément"
+    ]
   }
 ]

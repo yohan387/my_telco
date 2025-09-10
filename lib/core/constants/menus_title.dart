@@ -1,4 +1,4 @@
-abstract final class AppMenusTitle {
+abstract final class AppMenus {
   static const String home = "Accueil";
   static const String offers = "Forfaits disponibles";
   static const String subscriptions = "Mes pass";

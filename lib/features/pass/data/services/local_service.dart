@@ -1,4 +1,4 @@
-import 'package:my_telco/features/offers/data/models/offer.dart';
+import 'package:my_telco/features/offer/domain/entities/offer.dart';
 import 'package:my_telco/features/pass/domain/entities/pass.dart';
 
 abstract interface class ILocalSubscriptionDataService {

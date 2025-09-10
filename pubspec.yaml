@@ -17,6 +17,7 @@ dependencies:
   dartz: ^0.10.1
   connectivity_plus: ^6.1.4
   http: ^1.4.0
+  intl: ^0.20.2
 
 
 dev_dependencies:
@@ -30,3 +31,4 @@ flutter:
     - assets/nav_bar/
     - assets/history/
     - assets/mock_data/
+    - assets/forfaits/

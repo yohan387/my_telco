@@ -10,10 +10,10 @@ class AppPathCubit extends Cubit<AppPathState> {
           const AppPathState(
             currentTabIndex: 0,
             stacks: [
-              [AppMenusTitle.home],
-              [AppMenusTitle.offers],
-              [AppMenusTitle.subscriptions],
-              [AppMenusTitle.history],
+              [AppMenus.home],
+              [AppMenus.offers],
+              [AppMenus.subscriptions],
+              [AppMenus.history],
             ],
           ),
         );
