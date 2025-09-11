@@ -1,5 +1,3 @@
-// domain/entities/active_pass.dart
-
 import 'package:equatable/equatable.dart';
 import 'package:my_telco/features/offer/domain/entities/offer.dart';
 

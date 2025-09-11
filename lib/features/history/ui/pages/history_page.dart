@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_telco/features/common/ui/app_icon.dart';
+import 'package:my_telco/features/common/ui/widgets/app_icon.dart';
 import 'package:my_telco/core/constants/assets.dart';
 
 import 'package:my_telco/core/constants/enums.dart';

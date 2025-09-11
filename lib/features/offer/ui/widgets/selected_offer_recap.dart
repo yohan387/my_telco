@@ -4,10 +4,11 @@ import 'package:my_telco/core/constants/assets.dart';
 import 'package:my_telco/core/constants/style.dart';
 import 'package:my_telco/core/theme/app_text_styles.dart';
 import 'package:my_telco/core/utils/extensions.dart';
-import 'package:my_telco/features/common/ui/app_button.dart';
-import 'package:my_telco/features/common/ui/app_icon.dart';
+import 'package:my_telco/features/common/ui/widgets/app_button.dart';
+import 'package:my_telco/features/common/ui/widgets/app_icon.dart';
 import 'package:my_telco/features/offer/domain/entities/offer.dart';
 import 'package:my_telco/features/offer/ui/states/get_offers_cubit/get_offers_cubit.dart';
+import 'package:my_telco/features/offer/ui/states/subscribe_to_offer/subscribe_to_offer_cubit.dart';
 import 'package:my_telco/features/offer/ui/widgets/confirmation.dart';
 import 'package:my_telco/features/offer/ui/widgets/offer_card.dart';
 import 'package:my_telco/features/offer/ui/widgets/offer_data_widget.dart';
@@ -17,45 +18,62 @@ class SelectedOfferRecap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        left: AppPadding.xl,
-        right: AppPadding.xl,
-        top: AppPadding.xl,
-      ),
-      child: BlocBuilder<GetOffersCubit, GetOffersState>(
-        builder: (context, state) {
-          if (state is GetOffersSuccess && state.selectedOffer != null) {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  "Récap de la transaction",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: Color.fromARGB(255, 66, 65, 65),
+    return BlocListener<SubscribeToOfferCubit, SubscribeToOfferState>(
+      listener: (context, state) {
+        if (state is SubscribeToOfferSuccess) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const ConfirmationWidget(),
+            ),
+          );
+        }
+        if (state is SubscribeToOfferFailure) {}
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(
+          left: AppPadding.xl,
+          right: AppPadding.xl,
+          top: AppPadding.xl,
+        ),
+        child: BlocBuilder<GetOffersCubit, GetOffersState>(
+          builder: (context, state) {
+            if (state is GetOffersSuccess && state.selectedOffer != null) {
+              final selectedOffer = state.selectedOffer!;
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Récap de la transaction",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: Color.fromARGB(255, 66, 65, 65),
+                    ),
                   ),
-                ),
-                AppEmptySpace.verticalXl,
-                _buildOfferDescription(state.selectedOffer!),
-                AppEmptySpace.verticalXl,
-                _buildPaymentRecap(state.selectedOffer!),
-                AppEmptySpace.verticalXl,
-                AppButton(
-                  label: "Souscrire",
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ConfirmationWidget()));
-                  },
-                )
-              ],
-            );
-          }
-          return const SizedBox.shrink();
-        },
+                  AppEmptySpace.verticalXl,
+                  _buildOfferDescription(selectedOffer),
+                  AppEmptySpace.verticalXl,
+                  _buildPaymentRecap(selectedOffer),
+                  AppEmptySpace.verticalXl,
+                  BlocBuilder<SubscribeToOfferCubit, SubscribeToOfferState>(
+                    builder: (context, state) {
+                      return AppButton(
+                        label: "Souscrire",
+                        onPressed: () {
+                          context
+                              .read<SubscribeToOfferCubit>()
+                              .call(selectedOffer);
+                        },
+                      );
+                    },
+                  )
+                ],
+              );
+            }
+            return const SizedBox.shrink();
+          },
+        ),
       ),
     );
   }

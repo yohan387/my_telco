@@ -1,5 +1,5 @@
 import 'package:my_telco/features/offer/domain/entities/offer.dart';
-import 'package:my_telco/features/pass/domain/entities/pass.dart';
+import 'package:my_telco/features/common/ui/entities/pass.dart';
 
 abstract interface class ILocalSubscriptionDataService {
   Future<List<Pass>> getActivePasses();

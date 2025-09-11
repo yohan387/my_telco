@@ -1,16 +1,22 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:my_telco/features/offer/domain/entities/offer.dart';
 import 'package:my_telco/features/offer/data/services/local_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+class MockSharedPreferences extends Mock implements SharedPreferences {}
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('LocalOfferDataService', () {
     late LocalOfferDataService service;
+    late MockSharedPreferences mockPrefs;
 
     setUp(() {
-      service = LocalOfferDataService();
+      mockPrefs = MockSharedPreferences();
+      service = LocalOfferDataService(mockPrefs);
     });
 
     test('getAvailableOffers should return a list of Offer from JSON',

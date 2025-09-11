@@ -1,4 +1,4 @@
-part of 'main_screen.dart';
+part of '../main_screen.dart';
 
 class AppBottomNavigationBar extends StatelessWidget {
   final int currentPageIndex;

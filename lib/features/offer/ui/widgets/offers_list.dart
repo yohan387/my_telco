@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_telco/core/constants/menus_title.dart';
 import 'package:my_telco/core/constants/style.dart';
 import 'package:my_telco/features/common/states/app_path_cubit/app_path_cubit.dart';
-import 'package:my_telco/features/common/ui/app_button.dart';
+import 'package:my_telco/features/common/ui/widgets/app_button.dart';
 import 'package:my_telco/features/offer/ui/states/get_offers_cubit/get_offers_cubit.dart';
 import 'package:my_telco/features/offer/ui/widgets/offer_card.dart';
 import 'package:my_telco/features/offer/ui/widgets/offer_data_widget.dart';

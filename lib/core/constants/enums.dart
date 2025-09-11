@@ -7,3 +7,5 @@ enum ConsumptionType { call, sms, data }
 enum AppErrorType { api, localStorage, internal, network }
 
 enum ApiMethod { get, post, put, delete, unknown }
+
+enum LocalSourceOption { sharedPref, json }

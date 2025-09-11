@@ -1,7 +1,7 @@
 import 'package:my_telco/core/mixins/repositories_mixin.dart';
 import 'package:my_telco/core/typedefs.dart';
 import 'package:my_telco/features/offer/domain/entities/offer.dart';
-import 'package:my_telco/features/pass/domain/entities/pass.dart';
+import 'package:my_telco/features/common/ui/entities/pass.dart';
 import 'package:my_telco/features/pass/data/services/local_service.dart';
 
 class SubscriptionRepo with RepositoriesMixin {

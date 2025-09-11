@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:my_telco/core/constants/assets.dart';
 import 'package:my_telco/core/constants/enums.dart';
 import 'package:my_telco/core/constants/style.dart';
-import 'package:my_telco/features/common/ui/app_button.dart';
-import 'package:my_telco/features/common/ui/app_common_navigation_bar.dart';
-import 'package:my_telco/features/common/ui/app_icon.dart';
+import 'package:my_telco/features/common/ui/widgets/app_button.dart';
+import 'package:my_telco/features/common/ui/widgets/app_common_navigation_bar.dart';
+import 'package:my_telco/features/common/ui/widgets/app_icon.dart';
 
 class ConfirmationWidget extends StatelessWidget {
   const ConfirmationWidget({super.key});

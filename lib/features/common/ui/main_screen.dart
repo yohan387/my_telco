@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:my_telco/features/common/states/app_path_cubit/app_path_cubit.dart';
-import 'package:my_telco/features/common/ui/app_common_navigation_bar.dart';
-import 'package:my_telco/features/common/ui/app_icon.dart';
+import 'package:my_telco/features/common/ui/widgets/app_common_navigation_bar.dart';
+import 'package:my_telco/features/common/ui/widgets/app_icon.dart';
 import 'package:my_telco/core/constants/assets.dart';
 import 'package:my_telco/core/constants/enums.dart';
 import 'package:my_telco/core/constants/style.dart';
@@ -12,7 +12,7 @@ import 'package:my_telco/features/history/ui/pages/history_page.dart';
 import 'package:my_telco/features/offer/ui/pages/offer_page.dart';
 import 'package:my_telco/features/pass/ui/pages/pass_page.dart';
 
-part 'bottom_navigation_bar.dart';
+part 'widgets/bottom_navigation_bar.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

@@ -15,4 +15,11 @@ class OfferRepo with RepositoriesMixin implements IOfferRepo {
       return await _localOffersDataService.getOffers();
     });
   }
+
+  @override
+  FutureVoidResult subscribeToOffer(Offer offer) {
+    return executeWithFailureHandling(() async {
+      return await _localOffersDataService.subscribeToOffer(offer);
+    });
+  }
 }
