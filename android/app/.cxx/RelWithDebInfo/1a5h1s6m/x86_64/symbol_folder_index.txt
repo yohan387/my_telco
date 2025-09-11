@@ -1,0 +1,1 @@
+C:\fluttersrc\projects\my_telco\build\app\intermediates\cxx\RelWithDebInfo\1a5h1s6m\obj\x86_64
