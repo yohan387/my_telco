@@ -22,14 +22,8 @@ class OfferDataWidget extends StatelessWidget {
         AppEmptySpace.verticalXl,
         _buildFeatures(),
         AppEmptySpace.verticalXl,
-        Text(
-          offer.price.formatAsAmount(),
-          style: AppTextStyles.heading1,
-        ),
-        Text(
-          offer.validityDays,
-          style: AppTextStyles.bodyText3,
-        ),
+        Text(offer.price.formatAsAmount(), style: AppTextStyles.heading1),
+        Text(offer.validityDays, style: AppTextStyles.bodyText3),
       ],
     );
   }
@@ -38,35 +32,27 @@ class OfferDataWidget extends StatelessWidget {
     return Wrap(
       spacing: 4,
       runSpacing: 4,
-      children: List.generate(
-        offer.features.length,
-        (index) {
-          return Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 1),
-            decoration: BoxDecoration(
-              color: _featureBackgroundColor,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Text(
-              offer.features[index],
-              style: AppTextStyles.bodyTextSecondary,
-            ),
-          );
-        },
-      ),
+      children: List.generate(offer.features.length, (index) {
+        return Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 1),
+          decoration: BoxDecoration(
+            color: _featureBackgroundColor,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Text(
+            offer.features[index],
+            style: AppTextStyles.bodyTextSecondary,
+          ),
+        );
+      }),
     );
   }
 
   Row _buildDescription() {
     return Row(
       children: [
-        const SizedBox(
-          width: 34,
-        ),
-        Text(
-          offer.description,
-          style: AppTextStyles.bodyText3,
-        ),
+        const SizedBox(width: 34),
+        Text(offer.description, style: AppTextStyles.bodyText3),
       ],
     );
   }
@@ -77,23 +63,20 @@ class OfferDataWidget extends StatelessWidget {
         _icon,
         AppEmptySpace.horizontalLarge,
         Expanded(
-          child: Text(
-            offer.name,
-            maxLines: 2,
-            style: AppTextStyles.cardTitle,
-          ),
+          child: Text(offer.name, maxLines: 2, style: AppTextStyles.cardTitle),
         ),
         if (offer.specialIndication != null)
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 1),
             decoration: BoxDecoration(
-                color: _specialIndicationBgColor,
-                borderRadius: BorderRadius.circular(AppRadius.small)),
+              color: _specialIndicationBgColor,
+              borderRadius: BorderRadius.circular(AppRadius.small),
+            ),
             child: Text(
               offer.specialIndication!,
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
             ),
-          )
+          ),
       ],
     );
   }

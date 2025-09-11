@@ -28,4 +28,5 @@ abstract final class AppAssetsSvgIcons {
 abstract final class AppAssetsPngIcons {
   static const String home = '$_navBarBase/accueil.png';
   static const String success = '$_offerBase/success.png';
+  static const String warning = '$_offerBase/warning.png';
 }

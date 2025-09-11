@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_telco/features/common/states/app_path_cubit/app_path_cubit.dart';
 
 import 'package:my_telco/core/constants/menus_title.dart';
+import 'package:my_telco/features/pass/ui/widgets/passes_list.dart';
+import 'package:my_telco/features/pass/ui/widgets/selected_pass_view.dart';
 
 class PassPage extends StatelessWidget {
   const PassPage({super.key});
@@ -13,26 +15,13 @@ class PassPage extends StatelessWidget {
     return BlocBuilder<AppPathCubit, AppPathState>(
       builder: (context, state) {
         if (cubit.state.currentPage == AppMenus.subscriptions) {
-          return Center(
-            child: ElevatedButton(
-              onPressed: () => cubit.pushPage(AppMenus.cancelPass),
-              child: const Text("Résilier pass"),
-            ),
-          );
-        } else if (cubit.state.currentPage == AppMenus.cancelPass) {
-          return Row(
-            children: [
-              ElevatedButton(
-                onPressed: () => cubit.popPage(),
-                child: const Text("Annuler"),
-              ),
-              ElevatedButton(
-                onPressed: () => cubit.popPage(),
-                child: const Text("Confirmer résiliation"),
-              ),
-            ],
-          );
+          return const PassesList();
         }
+
+        if (cubit.state.currentPage == AppMenus.cancelPass) {
+          return const SelectedPassView();
+        }
+
         return const SizedBox.shrink();
       },
     );

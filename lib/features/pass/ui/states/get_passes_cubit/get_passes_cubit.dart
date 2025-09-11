@@ -1,0 +1,23 @@
+import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:my_telco/core/errors/failures.dart';
+import 'package:my_telco/features/common/ui/entities/pass.dart';
+import 'package:my_telco/features/pass/data/repo/pass_repo.dart';
+
+part 'get_passes_state.dart';
+
+class GetPassesCubit extends Cubit<GetPassesState> {
+  final IPassRepo _passRepo;
+  GetPassesCubit(this._passRepo) : super(const GetPassesInitial());
+
+  Future<void> call() async {
+    emit(const GetPassesLoading());
+
+    final result = await _passRepo.getPasses();
+
+    result.fold(
+      (failure) => emit(GetPassesFailure(failure)),
+      (records) => emit(GetPassesSuccess(records)),
+    );
+  }
+}

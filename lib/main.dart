@@ -26,10 +26,7 @@ class MainApp extends StatelessWidget {
         BlocProvider(create: (context) => sl<GetOffersCubit>()),
         BlocProvider(create: (context) => sl<SubscribeToOfferCubit>()),
       ],
-      child: MaterialApp(
-        theme: AppTheme.lightTheme,
-        home: const MainScreen(),
-      ),
+      child: MaterialApp(theme: AppTheme.lightTheme, home: const MainScreen()),
     );
   }
 }
