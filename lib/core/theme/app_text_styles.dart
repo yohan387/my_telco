@@ -34,7 +34,7 @@ class AppTextStyles {
 
   static const TextStyle cardTitle = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: FontWeight.bold,
     color: AppColors.black,
   );

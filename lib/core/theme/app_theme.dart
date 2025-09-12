@@ -14,7 +14,7 @@ class AppTheme {
       elevation: 0,
       foregroundColor: AppColors.black,
       surfaceTintColor: Colors.transparent,
-      shadowColor: AppColors.grey.withOpacity(0.2),
+      shadowColor: AppColors.grey.withAlpha(55),
       titleTextStyle: const TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.bold,
@@ -26,9 +26,10 @@ class AppTheme {
       backgroundColor: AppColors.white,
       indicatorColor: AppColors.orangeGradiant2,
       labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>(
-        (states) => states.contains(WidgetState.selected)
-            ? const TextStyle(color: AppColors.orange)
-            : const TextStyle(color: AppColors.black),
+        (states) =>
+            states.contains(WidgetState.selected)
+                ? const TextStyle(color: AppColors.orange)
+                : const TextStyle(color: AppColors.black),
       ),
     ),
   );
