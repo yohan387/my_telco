@@ -14,24 +14,29 @@ class AppBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80,
+      height: 84,
       color: Colors.transparent,
-      child: ClipRRect(
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(16),
-          topRight: Radius.circular(16),
+      padding: const EdgeInsets.only(top: 0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(24),
+            topRight: Radius.circular(24),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: const Color.fromARGB(255, 8, 0, 0).withAlpha(10),
+              offset: const Offset(0, -2),
+              blurRadius: 8,
+              spreadRadius: 0.2,
+            ),
+          ],
         ),
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: const Color.fromARGB(255, 8, 0, 0).withAlpha(10),
-                offset: const Offset(0, -16),
-                blurRadius: 8,
-                spreadRadius: 10,
-              ),
-            ],
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(24),
+            topRight: Radius.circular(24),
           ),
           child: NavigationBar(
             selectedIndex: currentPageIndex,
