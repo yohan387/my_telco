@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
-
 import 'package:flutter/services.dart';
 import 'package:my_telco/core/constants/enums.dart';
 import 'package:my_telco/core/constants/shared_preferences_keys.dart';
@@ -91,8 +89,6 @@ class LocalOfferDataService
       });
 
       jsonList.add(newPass);
-
-      log(jsonList.last);
 
       await _prefs.setStringList(SharedPrefKey.pass, jsonList);
     }, sources: [LocalSourceOption.sharedPref]);

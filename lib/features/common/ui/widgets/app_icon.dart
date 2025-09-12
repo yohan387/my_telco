@@ -19,22 +19,15 @@ class AppIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(4),
+      padding: const EdgeInsets.all(6),
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(12),
       ),
-      child: type == AppIconType.svg
-          ? SvgPicture.asset(
-              imgPath,
-              width: size,
-              height: size,
-            )
-          : Image.asset(
-              imgPath,
-              width: size,
-              height: size,
-            ),
+      child:
+          type == AppIconType.svg
+              ? SvgPicture.asset(imgPath, width: size, height: size)
+              : Image.asset(imgPath, width: size, height: size),
     );
   }
 }

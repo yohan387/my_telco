@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:my_telco/core/errors/failures.dart';
-import 'package:my_telco/features/common/ui/entities/pass.dart';
+import 'package:my_telco/features/common/domain/entities/pass.dart';
 import 'package:my_telco/features/pass/data/repo/pass_repo.dart';
 
 part 'get_passes_state.dart';
@@ -19,5 +19,12 @@ class GetPassesCubit extends Cubit<GetPassesState> {
       (failure) => emit(GetPassesFailure(failure)),
       (records) => emit(GetPassesSuccess(records)),
     );
+  }
+
+  void selectPass(Pass pass) {
+    final currentState = state;
+    if (currentState is GetPassesSuccess) {
+      emit(GetPassesSuccess(currentState.records, selectedPass: pass));
+    }
   }
 }

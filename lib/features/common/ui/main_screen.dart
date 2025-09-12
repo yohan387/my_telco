@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_telco/core/constants/app_tab_page_index.dart';
 
 import 'package:my_telco/features/common/states/app_path_cubit/app_path_cubit.dart';
 import 'package:my_telco/features/common/ui/widgets/app_common_navigation_bar.dart';
@@ -43,7 +44,7 @@ class _MainScreenState extends State<MainScreen> {
       builder: (context, state) {
         return PopScope(
           canPop: _canPop,
-          onPopInvoked: (didPop) {
+          onPopInvokedWithResult: (didPop, result) {
             if (state.stackLength > 1) {
               setState(() => _canPop = false);
               _cubit.popPage();
@@ -54,12 +55,10 @@ class _MainScreenState extends State<MainScreen> {
               setState(() => _canPop = true);
             }
           },
+
           child: Scaffold(
             appBar: _buildAppBar(state.currentTabIndex),
-            body: IndexedStack(
-              index: state.currentTabIndex,
-              children: _pages,
-            ),
+            body: _pages[state.currentTabIndex],
             bottomNavigationBar: AppBottomNavigationBar(
               currentPageIndex: state.currentTabIndex,
               onTap: _cubit.setTab,
@@ -72,18 +71,11 @@ class _MainScreenState extends State<MainScreen> {
 
   PreferredSizeWidget _buildAppBar(int currentTabIndex) {
     switch (currentTabIndex) {
-      case _PageIndex.dashboardPage:
+      case AppTabPageIndex.dashboardPage:
         return AppBar();
 
       default:
         return const AppCommonNavigationBar();
     }
   }
-}
-
-abstract final class _PageIndex {
-  static const int dashboardPage = 0;
-  static const int offersPage = 1;
-  static const int subscriptionPage = 2;
-  static const int historyPage = 3;
 }

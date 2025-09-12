@@ -35,3 +35,4 @@ flutter:
     - assets/mock_data/
     - assets/forfaits/
     - assets/dashboard/
+    - assets/common/

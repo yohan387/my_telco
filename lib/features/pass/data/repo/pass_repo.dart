@@ -1,6 +1,6 @@
 import 'package:my_telco/core/mixins/repositories_mixin.dart';
 import 'package:my_telco/core/typedefs.dart';
-import 'package:my_telco/features/common/ui/entities/pass.dart';
+import 'package:my_telco/features/common/domain/entities/pass.dart';
 import 'package:my_telco/features/pass/data/services/local_service.dart';
 
 abstract interface class IPassRepo {
@@ -9,21 +9,21 @@ abstract interface class IPassRepo {
 }
 
 class PassRepo with RepositoriesMixin implements IPassRepo {
-  final ILocalPassDataService localPassDataService;
+  final ILocalPassDataService _localPassDataService;
 
-  PassRepo({required this.localPassDataService});
+  PassRepo(this._localPassDataService);
 
   @override
   FutureResult<List<Pass>> getPasses() async {
     return executeWithFailureHandling(() async {
-      return await localPassDataService.getPasses();
+      return await _localPassDataService.getPasses();
     });
   }
 
   @override
   FutureVoidResult cancelPass(int passId) async {
     return executeWithFailureHandling(() async {
-      return await localPassDataService.cancelPass(passId);
+      return await _localPassDataService.cancelPass(passId);
     });
   }
 }

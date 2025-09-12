@@ -3,7 +3,8 @@ import 'dart:convert';
 import 'package:my_telco/core/constants/enums.dart';
 import 'package:my_telco/core/constants/shared_preferences_keys.dart';
 import 'package:my_telco/core/mixins/local_source_mixin.dart';
-import 'package:my_telco/features/common/ui/entities/pass.dart';
+import 'package:my_telco/core/typedefs.dart';
+import 'package:my_telco/features/common/domain/entities/pass.dart';
 import 'package:my_telco/features/offer/domain/entities/offer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -25,10 +26,12 @@ class LocalPassDataService
       final jsonList = _prefs.getStringList(SharedPrefKey.pass) ?? [];
 
       return jsonList.map((jsonString) {
-        final Map<String, dynamic> json = jsonDecode(jsonString);
+        final DynamicMap passJson = jsonDecode(jsonString);
+        final DynamicMap offerJson = jsonDecode(passJson['offer']);
 
-        final Map<String, dynamic> offerJson = jsonDecode(json['offer']);
         final offerType = OfferType.values.byName(offerJson['type']);
+        final List<String> featuresString =
+            (offerJson['features'] as List<dynamic>).cast<String>().toList();
 
         final offer = Offer(
           id: offerJson['id'],
@@ -40,17 +43,17 @@ class LocalPassDataService
           isAvailable: offerJson['isAvailable'],
           isPopular: offerJson['isPopular'],
           specialIndication: offerJson['specialIndication'],
-          features: List<String>.from(offerJson['features'] ?? []),
+          features: featuresString,
         );
 
         return Pass(
-          id: json['id'],
+          id: passJson['id'] as int,
           offer: offer,
           activationDate: DateTime.fromMillisecondsSinceEpoch(
-            json['activationDate'],
+            passJson['activationDate'],
           ),
           expirationDate: DateTime.fromMillisecondsSinceEpoch(
-            json['expirationDate'],
+            passJson['expirationDate'],
           ),
         );
       }).toList();
@@ -64,7 +67,7 @@ class LocalPassDataService
 
       final updatedList =
           jsonList.where((jsonString) {
-            final Map<String, dynamic> json = jsonDecode(jsonString);
+            final DynamicMap json = jsonDecode(jsonString);
             return json['id'] != passId;
           }).toList();
 

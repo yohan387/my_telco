@@ -14,30 +14,29 @@ class AppCommonNavigationBar extends StatelessWidget
     final cubit = context.watch<AppPathCubit>();
     final state = cubit.state;
 
-    final canPop = state.stackLength > 1 ||
-        (state.stackLength == 1 && !state.isOnHomePage);
+    final canPop = state.stackLength > 1;
 
     return AppBar(
       title: Text(title ?? state.currentPage),
-      centerTitle: true,
       leadingWidth: 72,
-      leading: canPop
-          ? IconButton(
-              style: ButtonStyle(
-                backgroundColor: WidgetStateProperty.all(AppColors.grey),
-                shape: WidgetStateProperty.all(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+      leading:
+          canPop
+              ? IconButton(
+                style: ButtonStyle(
+                  backgroundColor: WidgetStateProperty.all(AppColors.grey),
+                  shape: WidgetStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                 ),
-              ),
-              onPressed: onBack ?? cubit.popPage,
-              icon: const Icon(Icons.arrow_back_ios_rounded),
-              color: AppColors.black,
-              iconSize: 20,
-              alignment: Alignment.center,
-            )
-          : null,
+                onPressed: onBack ?? cubit.popPage,
+                icon: const Icon(Icons.arrow_back_ios_rounded),
+                color: AppColors.black,
+                iconSize: 20,
+                alignment: Alignment.center,
+              )
+              : null,
     );
   }
 

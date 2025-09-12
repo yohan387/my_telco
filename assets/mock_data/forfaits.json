@@ -4,7 +4,7 @@
     "nom_offre": "Pass Internet 5GB",
     "description": "Naviguez sans limite avec 5Go de data.",
     "prix": 3000,
-    "nombre_de_jours_de_validite": 15,
+    "nombre_de_jours_de_validite": 3,
     "type": "pass_internet",
     "est_disponible": true,
     "est_populaire": false,

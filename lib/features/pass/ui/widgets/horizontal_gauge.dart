@@ -5,8 +5,8 @@ import 'package:my_telco/core/theme/app_text_styles.dart';
 class HorizontalGauge extends StatelessWidget {
   final String title;
   final String remainingText;
-  final double value;
-  final double maxValue;
+  final int value;
+  final int maxValue;
   final double height;
   final bool animate;
   final Duration animationDuration;
@@ -24,10 +24,11 @@ class HorizontalGauge extends StatelessWidget {
     this.animationDuration = const Duration(milliseconds: 600),
     this.titleStyle,
     this.remainingStyle,
-  }) : assert(maxValue > 0);
+  });
 
   double get _clampedRatio {
     final ratio = (value / maxValue);
+    if (ratio.isNegative) return 0.0;
     if (ratio.isNaN) return 0.0;
     if (ratio.isInfinite) return 1.0;
     return ratio.clamp(0.0, 1.0);
@@ -85,12 +86,12 @@ class _GaugeBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return animate ? _buildAnimatedBar() : _buildSimpleBar(ratio);
+    return animate ? _buildAnimatedBar(ratio) : _buildSimpleBar(ratio);
   }
 
-  TweenAnimationBuilder<double> _buildAnimatedBar() {
+  TweenAnimationBuilder<double> _buildAnimatedBar(double ratio) {
     return TweenAnimationBuilder<double>(
-      tween: Tween<double>(begin: 0.0, end: ratio),
+      tween: Tween<double>(begin: 1, end: ratio == 0.0 ? 0 : 1 - (1 - ratio)),
       duration: animationDuration,
       builder: (context, animatedRatio, child) {
         return _buildSimpleBar(animatedRatio);

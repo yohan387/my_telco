@@ -7,6 +7,8 @@ import 'package:my_telco/core/theme/app_theme.dart';
 import 'package:my_telco/features/history/ui/states/get_consumptions_history/get_consumptions_history_cubit.dart';
 import 'package:my_telco/features/offer/ui/states/get_offers_cubit/get_offers_cubit.dart';
 import 'package:my_telco/features/offer/ui/states/subscribe_to_offer/subscribe_to_offer_cubit.dart';
+import 'package:my_telco/features/pass/ui/states/cancel_pass_cubit/cancel_pass_cubit.dart';
+import 'package:my_telco/features/pass/ui/states/get_passes_cubit/get_passes_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +27,8 @@ class MainApp extends StatelessWidget {
         BlocProvider(create: (context) => sl<GetConsumptionsHistoryCubit>()),
         BlocProvider(create: (context) => sl<GetOffersCubit>()),
         BlocProvider(create: (context) => sl<SubscribeToOfferCubit>()),
+        BlocProvider(create: (context) => sl<GetPassesCubit>()),
+        BlocProvider(create: (context) => sl<CancelPassCubit>()),
       ],
       child: MaterialApp(theme: AppTheme.lightTheme, home: const MainScreen()),
     );

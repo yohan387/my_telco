@@ -4,7 +4,7 @@ sealed class GetPassesState extends Equatable {
   const GetPassesState();
 
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [];
 }
 
 final class GetPassesInitial extends GetPassesState {
@@ -17,10 +17,11 @@ final class GetPassesLoading extends GetPassesState {
 
 final class GetPassesSuccess extends GetPassesState {
   final List<Pass> records;
-  const GetPassesSuccess(this.records);
+  final Pass? selectedPass;
+  const GetPassesSuccess(this.records, {this.selectedPass});
 
   @override
-  List<Object> get props => [records];
+  List<Object?> get props => [records, selectedPass];
 }
 
 final class GetPassesFailure extends GetPassesState {
