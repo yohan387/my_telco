@@ -7,6 +7,7 @@ class AppIcon extends StatelessWidget {
   final double size;
   final Color? color;
   final AppIconType type;
+  final double padding;
 
   const AppIcon({
     super.key,
@@ -14,12 +15,13 @@ class AppIcon extends StatelessWidget {
     this.size = 22,
     this.color,
     this.type = AppIconType.svg,
+    this.padding = 6,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(6),
+      padding: EdgeInsets.all(padding),
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(12),

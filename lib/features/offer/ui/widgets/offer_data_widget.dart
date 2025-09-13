@@ -49,7 +49,14 @@ class OfferDataWidget extends StatelessWidget {
     return Row(
       children: [
         const SizedBox(width: 34),
-        Text(offer.description, style: AppTextStyles.bodyText3),
+        Expanded(
+          child: Text(
+            offer.description,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: AppTextStyles.bodyText3,
+          ),
+        ),
       ],
     );
   }

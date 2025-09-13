@@ -15,7 +15,7 @@ class AppOptionsChipsSelector<T> extends StatelessWidget {
     required this.items,
     required this.selected,
     required this.onChanged,
-    this.spacing = 12,
+    this.spacing = 8,
     this.wrapAlignment = WrapAlignment.start,
     this.chipPadding = const EdgeInsets.symmetric(horizontal: 4),
   });
@@ -24,30 +24,30 @@ class AppOptionsChipsSelector<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     return Wrap(
       spacing: spacing,
-      runSpacing: spacing,
       alignment: wrapAlignment,
-      children: items.map((opt) {
-        final isSelected = opt.value == selected;
+      children:
+          items.map((opt) {
+            final isSelected = opt.value == selected;
 
-        return ChoiceChip(
-          avatar: opt.icon,
-          showCheckmark: false,
-          label: Text(opt.label),
-          selected: isSelected,
-          padding: chipPadding,
-          selectedColor: AppColors.orangeGradiant2,
-          backgroundColor: AppColors.white,
-          labelStyle: TextStyle(
-            color: isSelected ? AppColors.orange : AppColors.black,
-            fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          side: const BorderSide(color: AppColors.grey),
-          onSelected: (_) => onChanged(opt.value),
-        );
-      }).toList(),
+            return ChoiceChip(
+              avatar: opt.icon,
+              showCheckmark: false,
+              label: Text(opt.label),
+              selected: isSelected,
+              padding: chipPadding,
+              selectedColor: AppColors.orangeGradiant2,
+              backgroundColor: AppColors.white,
+              labelStyle: TextStyle(
+                color: isSelected ? AppColors.orange : AppColors.black,
+                fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              side: const BorderSide(color: AppColors.grey),
+              onSelected: (_) => onChanged(opt.value),
+            );
+          }).toList(),
     );
   }
 }

@@ -19,7 +19,7 @@ class Pass extends Equatable {
   DateTime get _today => DateTime.now();
 
   int get remainingDaysValue {
-    final int value = expirationDate.difference(_today).inDays;
+    final int value = expirationDate.difference(_today).inDays + 1;
     return value.isNegative ? 0 : value;
   }
 

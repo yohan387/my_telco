@@ -45,4 +45,11 @@ class AppTextStyles {
     fontWeight: FontWeight.w600,
     color: AppColors.text3,
   );
+
+  static const TextStyle dashboardMainValue = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 22,
+    fontWeight: FontWeight.w700,
+    color: AppColors.black,
+  );
 }

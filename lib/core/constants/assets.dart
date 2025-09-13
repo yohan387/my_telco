@@ -2,6 +2,7 @@ const String _navBarBase = "assets/nav_bar";
 const String _historyBase = "assets/history";
 const String _offerBase = "assets/forfaits";
 const String _common = "assets/common";
+const String _dashboard = "assets/dashboard";
 
 abstract final class AppAssetsSvgIcons {
   static const String homeOrange = '$_navBarBase/accueil_orange.svg';
@@ -24,6 +25,9 @@ abstract final class AppAssetsSvgIcons {
   static const String expiration = '$_offerBase/expiration.svg';
   static const String doubleArrow = '$_offerBase/pass.svg';
   static const String all = '$_offerBase/tous.svg';
+
+  static const String puce = '$_dashboard/puce.svg';
+  static const String balance = '$_dashboard/solde.svg';
 }
 
 abstract final class AppAssetsPngIcons {
@@ -31,4 +35,5 @@ abstract final class AppAssetsPngIcons {
   static const String success = '$_offerBase/success.png';
   static const String warning = '$_offerBase/warning.png';
   static const String emptyContent = '$_common/empty_content.png';
+  static const String profile = '$_dashboard/profile.png';
 }

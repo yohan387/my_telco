@@ -1,0 +1,24 @@
+{
+  "id": "1",
+  "nom": "Jean Dupont",
+  "telephone": "0700000008",
+  "solde": 100.0,
+  "date_expiration_solde": "2025-09-12T18:05:00Z",
+  "donnees": [
+    {
+      "type": "internet",
+      "valeur": "5.5 Go",
+      "date_expiration": "2025-09-12T18:05:00Z"
+    },
+    {
+      "type": "voice",
+      "valeur": "120 min",
+      "date_expiration": "2025-09-12T18:05:00Z"
+    },
+    {
+      "type": "sms",
+      "valeur": "50 sms",
+      "date_expiration": "2025-09-12T18:05:00Z"
+    }
+  ]
+}

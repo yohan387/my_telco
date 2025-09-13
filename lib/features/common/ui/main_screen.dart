@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_telco/core/constants/app_tab_page_index.dart';
 
 import 'package:my_telco/features/common/states/app_path_cubit/app_path_cubit.dart';
-import 'package:my_telco/features/common/ui/widgets/app_common_navigation_bar.dart';
+import 'package:my_telco/features/common/ui/widgets/navigation_bar.dart';
 import 'package:my_telco/features/common/ui/widgets/app_icon.dart';
 import 'package:my_telco/core/constants/assets.dart';
 import 'package:my_telco/core/constants/enums.dart';
@@ -72,7 +72,7 @@ class _MainScreenState extends State<MainScreen> {
   PreferredSizeWidget _buildAppBar(int currentTabIndex) {
     switch (currentTabIndex) {
       case AppTabPageIndex.dashboardPage:
-        return AppBar();
+        return const DashboardAppBar();
 
       default:
         return const AppCommonNavigationBar();

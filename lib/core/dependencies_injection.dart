@@ -1,4 +1,7 @@
 import 'package:get_it/get_it.dart';
+import 'package:my_telco/features/dashboard/data/repo/dashboard_repo.dart';
+import 'package:my_telco/features/dashboard/data/services/local_data_service.dart';
+import 'package:my_telco/features/dashboard/ui/states/cubit/get_dashboard_infos_cubit.dart';
 import 'package:my_telco/features/history/data/repo/history_repo.dart';
 import 'package:my_telco/features/history/data/services/local_service.dart';
 import 'package:my_telco/features/history/domain/repo/history_repo.dart';
@@ -21,6 +24,7 @@ Future<void> initDependencies() async {
   _registerHistoryDependencies();
   _registerOfferDependencies();
   _registerPassDependencies();
+  _registerDashboardDependencies();
 }
 
 Future<void> _registerHistoryDependencies() async {
@@ -50,6 +54,15 @@ Future<void> _registerPassDependencies() async {
     ..registerLazySingleton<IPassRepo>(() => PassRepo(sl()))
     ..registerFactory(() => GetPassesCubit(sl()))
     ..registerFactory(() => CancelPassCubit(sl()));
+}
+
+Future<void> _registerDashboardDependencies() async {
+  sl
+    ..registerLazySingleton<ILocalDashboardDataService>(
+      () => LocalDashboardDataService(),
+    )
+    ..registerLazySingleton<IDashboardRepo>(() => DashboardRepo(sl()))
+    ..registerFactory(() => GetDashboardInfosCubit(sl()));
 }
 
 Future<void> _initExternalLibraries() async {
