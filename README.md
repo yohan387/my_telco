@@ -1,4 +1,4 @@
-# 📱 Mini Projet Flutter – Recrutement Orange CI
+# MyTelco
 
 ## 🚀 Requirements
 Avant de démarrer, assurez-vous d’avoir installé les outils suivants :
