@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:flutter/services.dart';
 import 'package:my_telco/core/constants/enums.dart';
-import 'package:my_telco/features/history/domain/entities/consumption_record.dart';
+import 'package:my_telco/features/history/data/models/consumption_record.dart';
 import 'package:my_telco/features/history/data/services/local_service.dart';
 
 void main() {
@@ -15,10 +15,11 @@ void main() {
       service = LocalHistoryDataService();
     });
 
-    test('getConsumptionHistory should return parsed list of ConsumptionRecord',
-        () async {
-      // Arrange: on mock le contenu du JSON
-      const fakeJson = '''
+    test(
+      'getConsumptionHistory should return parsed list of ConsumptionRecord',
+      () async {
+        // Arrange: on mock le contenu du JSON
+        const fakeJson = '''
           {
             "history": [
               {
@@ -39,29 +40,30 @@ void main() {
           }
       ''';
 
-      // Mock rootBundle.loadString pour retourner notre fakeJson
-      const channel = StringCodec();
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMessageHandler('flutter/assets', (message) async {
-        final key = channel.decodeMessage(message);
-        if (key == 'assets/mock_data/historique.json') {
-          return channel.encodeMessage(fakeJson);
-        }
-        return null;
-      });
+        // Mock rootBundle.loadString pour retourner notre fakeJson
+        const channel = StringCodec();
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+            .setMockMessageHandler('flutter/assets', (message) async {
+              final key = channel.decodeMessage(message);
+              if (key == 'assets/mock_data/historique.json') {
+                return channel.encodeMessage(fakeJson);
+              }
+              return null;
+            });
 
-      // Act
-      final result = await service.getConsumptionHistory();
+        // Act
+        final result = await service.getConsumptionHistory();
 
-      // Assert
-      expect(result, isA<List<ConsumptionRecord>>());
-      expect(result.length, 2);
+        // Assert
+        expect(result, isA<List<ConsumptionRecord>>());
+        expect(result.length, 2);
 
-      final first = result.first;
-      expect(first.id, '1');
-      expect(first.type, ConsumptionType.call);
-      expect(first.dataUsage, '12 min');
-      expect(first.details, 'A : +2250700000000');
-    });
+        final first = result.first;
+        expect(first.id, '1');
+        expect(first.type, ConsumptionType.call);
+        expect(first.dataUsage, '12 min');
+        expect(first.details, 'A : +2250700000000');
+      },
+    );
   });
 }

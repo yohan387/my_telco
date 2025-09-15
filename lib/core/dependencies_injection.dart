@@ -4,11 +4,9 @@ import 'package:my_telco/features/dashboard/data/services/local_data_service.dar
 import 'package:my_telco/features/dashboard/ui/states/cubit/get_dashboard_infos_cubit.dart';
 import 'package:my_telco/features/history/data/repo/history_repo.dart';
 import 'package:my_telco/features/history/data/services/local_service.dart';
-import 'package:my_telco/features/history/domain/repo/history_repo.dart';
 import 'package:my_telco/features/history/ui/states/get_consumptions_history/get_consumptions_history_cubit.dart';
 import 'package:my_telco/features/offer/data/repo/offers_repo.dart';
 import 'package:my_telco/features/offer/data/services/local_service.dart';
-import 'package:my_telco/features/offer/domain/repo/offer_repo.dart';
 import 'package:my_telco/features/offer/ui/states/get_offers_cubit/get_offers_cubit.dart';
 import 'package:my_telco/features/offer/ui/states/subscribe_to_offer/subscribe_to_offer_cubit.dart';
 import 'package:my_telco/features/pass/data/repo/pass_repo.dart';

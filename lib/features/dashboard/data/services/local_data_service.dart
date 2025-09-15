@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:my_telco/features/dashboard/domain/entities/customer.dart';
+import 'package:my_telco/features/dashboard/data/models/customer.dart';
 
 abstract interface class ILocalDashboardDataService {
   Future<Customer> getCustormerProfile();

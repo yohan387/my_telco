@@ -1,8 +1,11 @@
 import 'package:my_telco/core/mixins/repositories_mixin.dart';
 import 'package:my_telco/core/typedefs.dart';
-import 'package:my_telco/features/history/domain/entities/consumption_record.dart';
+import 'package:my_telco/features/history/data/models/consumption_record.dart';
 import 'package:my_telco/features/history/data/services/local_service.dart';
-import 'package:my_telco/features/history/domain/repo/history_repo.dart';
+
+abstract interface class IHistoryRepo {
+  FutureResult<List<ConsumptionRecord>> getConsumptionHistory();
+}
 
 class HistoryRepo with RepositoriesMixin implements IHistoryRepo {
   final ILocalHistoryDataService _localHistoryDataService;

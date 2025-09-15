@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_telco/core/constants/assets.dart';
 import 'package:my_telco/core/constants/enums.dart';
-import 'package:my_telco/features/common/domain/entities/pass.dart';
+import 'package:my_telco/features/common/models/pass.dart';
 import 'package:my_telco/features/common/states/app_path_cubit/app_path_cubit.dart';
 import 'package:my_telco/features/common/ui/widgets/app_button.dart';
 import 'package:my_telco/features/common/ui/widgets/app_icon.dart';

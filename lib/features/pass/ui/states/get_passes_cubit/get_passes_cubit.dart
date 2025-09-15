@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:my_telco/core/errors/failures.dart';
-import 'package:my_telco/features/common/domain/entities/pass.dart';
+import 'package:my_telco/features/common/models/pass.dart';
 import 'package:my_telco/features/pass/data/repo/pass_repo.dart';
 
 part 'get_passes_state.dart';

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_telco/core/constants/style.dart';
-import 'package:my_telco/features/history/domain/entities/app_option_chips_item.dart';
 
 class AppOptionsChipsSelector<T> extends StatelessWidget {
   final List<AppOptionChipsItem<T>> items;
@@ -50,4 +49,16 @@ class AppOptionsChipsSelector<T> extends StatelessWidget {
           }).toList(),
     );
   }
+}
+
+class AppOptionChipsItem<T> {
+  final T value;
+  final String label;
+  final Widget icon;
+
+  AppOptionChipsItem({
+    required this.value,
+    required this.label,
+    required this.icon,
+  });
 }

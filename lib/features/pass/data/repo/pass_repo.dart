@@ -1,6 +1,6 @@
 import 'package:my_telco/core/mixins/repositories_mixin.dart';
 import 'package:my_telco/core/typedefs.dart';
-import 'package:my_telco/features/common/domain/entities/pass.dart';
+import 'package:my_telco/features/common/models/pass.dart';
 import 'package:my_telco/features/pass/data/services/local_service.dart';
 
 abstract interface class IPassRepo {

@@ -3,7 +3,7 @@ import 'package:my_telco/core/constants/assets.dart';
 import 'package:my_telco/core/constants/style.dart';
 import 'package:my_telco/core/theme/app_text_styles.dart';
 import 'package:my_telco/core/utils/extensions.dart';
-import 'package:my_telco/features/common/domain/entities/pass.dart';
+import 'package:my_telco/features/common/models/pass.dart';
 import 'package:my_telco/features/common/ui/widgets/app_icon.dart';
 import 'package:my_telco/features/pass/ui/widgets/horizontal_gauge.dart';
 

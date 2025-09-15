@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:my_telco/core/constants/enums.dart';
 import 'package:my_telco/core/typedefs.dart';
-import 'package:my_telco/features/history/domain/entities/consumption_record.dart';
+import 'package:my_telco/features/history/data/models/consumption_record.dart';
 
 abstract interface class ILocalHistoryDataService {
   Future<List<ConsumptionRecord>> getConsumptionHistory();

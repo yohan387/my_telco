@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:my_telco/features/offer/domain/entities/offer.dart';
+import 'package:my_telco/features/offer/data/entities/offer.dart';
 
 class Pass extends Equatable {
   final int id;

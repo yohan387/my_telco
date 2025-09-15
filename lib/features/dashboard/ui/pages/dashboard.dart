@@ -4,7 +4,7 @@ import 'package:my_telco/core/constants/assets.dart';
 import 'package:my_telco/core/constants/style.dart';
 import 'package:my_telco/features/common/ui/widgets/app_icon.dart';
 import 'package:my_telco/features/common/ui/widgets/loading_card.dart';
-import 'package:my_telco/features/dashboard/domain/entities/customer.dart';
+import 'package:my_telco/features/dashboard/data/models/customer.dart';
 import 'package:my_telco/features/dashboard/ui/states/cubit/get_dashboard_infos_cubit.dart';
 import 'package:my_telco/features/dashboard/ui/widgets/dashboard_card.dart';
 

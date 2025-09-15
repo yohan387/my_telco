@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:my_telco/core/errors/failures.dart';
 import 'package:my_telco/features/dashboard/data/repo/dashboard_repo.dart';
-import 'package:my_telco/features/dashboard/domain/entities/customer.dart';
+import 'package:my_telco/features/dashboard/data/models/customer.dart';
 
 part 'get_dashboard_infos_state.dart';
 
