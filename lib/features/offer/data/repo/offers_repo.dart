@@ -1,6 +1,6 @@
 import 'package:my_telco/core/mixins/repositories_mixin.dart';
 import 'package:my_telco/core/typedefs.dart';
-import 'package:my_telco/features/offer/data/entities/offer.dart';
+import 'package:my_telco/features/offer/data/models/offer.dart';
 import 'package:my_telco/features/offer/data/services/local_service.dart';
 
 abstract interface class IOfferRepo {

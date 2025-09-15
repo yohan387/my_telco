@@ -58,7 +58,7 @@ class _MainScreenState extends State<MainScreen> {
 
           child: Scaffold(
             appBar: _buildAppBar(state.currentTabIndex),
-            body: IndexedStack(index: state.currentTabIndex, children: _pages),
+            body: _pages[state.currentTabIndex],
             bottomNavigationBar: AppBottomNavigationBar(
               currentPageIndex: state.currentTabIndex,
               onTap: _cubit.setTab,

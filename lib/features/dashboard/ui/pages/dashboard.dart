@@ -23,7 +23,7 @@ class DashboardPage extends StatelessWidget {
     cubit.getDashboardInfos();
 
     return RefreshIndicator(
-      onRefresh: () => cubit.getDashboardInfos(),
+      onRefresh: () => cubit.getDashboardInfos(forceRefresh: true),
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(AppPadding.xl),
         child: BlocBuilder<GetDashboardInfosCubit, GetDashboardInfosState>(

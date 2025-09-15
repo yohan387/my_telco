@@ -6,7 +6,7 @@ import 'package:my_telco/core/theme/app_text_styles.dart';
 import 'package:my_telco/core/utils/extensions.dart';
 import 'package:my_telco/features/common/ui/widgets/app_button.dart';
 import 'package:my_telco/features/common/ui/widgets/app_icon.dart';
-import 'package:my_telco/features/offer/data/entities/offer.dart';
+import 'package:my_telco/features/offer/data/models/offer.dart';
 import 'package:my_telco/features/offer/ui/states/get_offers_cubit/get_offers_cubit.dart';
 import 'package:my_telco/features/offer/ui/states/subscribe_to_offer/subscribe_to_offer_cubit.dart';
 import 'package:my_telco/features/offer/ui/widgets/confirmation.dart';

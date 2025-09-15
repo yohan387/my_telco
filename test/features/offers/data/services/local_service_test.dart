@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:my_telco/features/offer/data/entities/offer.dart';
+import 'package:my_telco/features/offer/data/models/offer.dart';
 import 'package:my_telco/features/offer/data/services/local_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

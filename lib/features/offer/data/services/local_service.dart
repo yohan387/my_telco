@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:my_telco/core/constants/enums.dart';
 import 'package:my_telco/core/constants/shared_preferences_keys.dart';
 import 'package:my_telco/core/mixins/local_source_mixin.dart';
-import 'package:my_telco/features/offer/data/entities/offer.dart';
+import 'package:my_telco/features/offer/data/models/offer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract interface class ILocalOfferDataService {

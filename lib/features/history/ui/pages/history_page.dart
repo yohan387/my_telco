@@ -30,6 +30,10 @@ class _HistoryPageState extends State<HistoryPage> {
   void initState() {
     super.initState();
     _getConsumptionCubit = context.read<GetConsumptionsHistoryCubit>();
+    if (_getConsumptionCubit.state is GetConsumptionsHistorySuccess) {
+      _consumptionRecords =
+          (_getConsumptionCubit.state as GetConsumptionsHistorySuccess).records;
+    }
     _getConsumptionCubit();
   }
 
@@ -37,7 +41,7 @@ class _HistoryPageState extends State<HistoryPage> {
   Widget build(BuildContext context) {
     return RefreshIndicator(
       triggerMode: RefreshIndicatorTriggerMode.anywhere,
-      onRefresh: () => _getConsumptionCubit(),
+      onRefresh: () => _getConsumptionCubit(forceRefresh: true),
       child: BlocConsumer<
         GetConsumptionsHistoryCubit,
         GetConsumptionsHistoryState

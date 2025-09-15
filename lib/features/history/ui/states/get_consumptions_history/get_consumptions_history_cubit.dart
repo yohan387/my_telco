@@ -12,7 +12,9 @@ class GetConsumptionsHistoryCubit extends Cubit<GetConsumptionsHistoryState> {
   GetConsumptionsHistoryCubit(this._historyRepo)
     : super(const GetConsumptionsHistoryInitial());
 
-  Future<void> call() async {
+  Future<void> call({bool forceRefresh = false}) async {
+    if (state is GetConsumptionsHistorySuccess && !forceRefresh) return;
+
     emit(const GetConsumptionsHistoryLoading());
 
     final result = await _historyRepo.getConsumptionHistory();

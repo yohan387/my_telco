@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_telco/core/constants/style.dart';
 import 'package:my_telco/core/theme/app_text_styles.dart';
 import 'package:my_telco/core/utils/extensions.dart';
-import 'package:my_telco/features/offer/data/entities/offer.dart';
+import 'package:my_telco/features/offer/data/models/offer.dart';
 
 class OfferDataWidget extends StatelessWidget {
   final Offer offer;

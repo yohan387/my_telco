@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_telco/core/constants/style.dart';
-import 'package:my_telco/features/offer/data/entities/offer.dart';
+import 'package:my_telco/features/offer/data/models/offer.dart';
 
 class OfferCard extends StatelessWidget {
   final Offer? offer;

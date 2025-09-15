@@ -11,7 +11,9 @@ class GetDashboardInfosCubit extends Cubit<GetDashboardInfosState> {
   GetDashboardInfosCubit(this._dashboardRepo)
     : super(const GetDashboardInfosInitial());
 
-  Future<void> getDashboardInfos() async {
+  Future<void> getDashboardInfos({bool forceRefresh = false}) async {
+    if (state is GetDashboardInfosSuccess && !forceRefresh) return;
+
     emit(const GetDashboardInfosLoading());
     final result = await _dashboardRepo.getCustormerProfile();
     result.fold(
