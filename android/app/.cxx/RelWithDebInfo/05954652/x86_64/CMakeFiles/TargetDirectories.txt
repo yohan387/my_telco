@@ -1,0 +1,2 @@
+C:/projects/flutter/my_telco/android/app/.cxx/RelWithDebInfo/05954652/x86_64/CMakeFiles/edit_cache.dir
+C:/projects/flutter/my_telco/android/app/.cxx/RelWithDebInfo/05954652/x86_64/CMakeFiles/rebuild_cache.dir

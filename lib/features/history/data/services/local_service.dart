@@ -12,6 +12,9 @@ abstract interface class ILocalHistoryDataService {
 class LocalHistoryDataService implements ILocalHistoryDataService {
   @override
   Future<List<ConsumptionRecord>> getConsumptionHistory() async {
+    // Simuler un délai de chargement
+    await Future.delayed(const Duration(seconds: 1));
+
     final String response = await rootBundle.loadString(
       'assets/mock_data/historique.json',
     );

@@ -4,6 +4,9 @@ import 'package:my_telco/core/constants/menus_title.dart';
 import 'package:my_telco/core/constants/style.dart';
 import 'package:my_telco/features/common/states/app_path_cubit/app_path_cubit.dart';
 import 'package:my_telco/features/common/ui/widgets/app_button.dart';
+import 'package:my_telco/features/common/ui/widgets/app_failure_widget.dart';
+import 'package:my_telco/features/common/ui/widgets/app_placeholder_list.dart';
+import 'package:my_telco/features/common/ui/widgets/snack_bar.dart';
 import 'package:my_telco/features/offer/ui/states/get_offers_cubit/get_offers_cubit.dart';
 import 'package:my_telco/features/offer/ui/widgets/offer_card.dart';
 import 'package:my_telco/features/offer/ui/widgets/offer_data_widget.dart';
@@ -31,68 +34,87 @@ class _OffersListState extends State<OffersList> {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
-      onRefresh: () => _offersCubit(),
-      child: BlocConsumer<GetOffersCubit, GetOffersState>(
-        buildWhen: (previous, current) {
-          final hasStateTypeChanged =
-              previous.runtimeType != current.runtimeType;
+      onRefresh: () => _offersCubit(forceRefresh: true),
+      child: Padding(
+        padding: const EdgeInsets.only(
+          left: AppPadding.xl,
+          right: AppPadding.xl,
+          top: AppPadding.xl,
+        ),
+        child: BlocConsumer<GetOffersCubit, GetOffersState>(
+          buildWhen: _rebuildCondition,
+          listener: (context, state) {
+            if (state is GetOffersFailure) {
+              showTopLeftSnackBar(
+                context: context,
+                icon: const Icon(Icons.error, color: AppColors.error),
+                message: state.failure.userMessage,
+              );
+            }
+          },
+          builder: (context, state) {
+            if (state is GetOffersLoading) {
+              return const AppPlaceholderList(itemCount: 3, height: 216);
+            }
 
-          final bothStateAreSuccess =
-              previous is GetOffersSuccess && current is GetOffersSuccess;
+            if (state is GetOffersFailure) {
+              return AppFailureWidget(
+                mainMessage: "Erreur lors du chargement des offres",
+                retryMessage: "Réessayer",
+                userAction: () => _offersCubit(),
+              );
+            }
 
-          final hasRecordsChanged =
-              bothStateAreSuccess && previous.records != current.records;
+            if (state is GetOffersSuccess) {
+              return _buildOffersList(state);
+            }
 
-          return hasStateTypeChanged || hasRecordsChanged;
-        },
-        listener: (context, state) {},
-        builder: (context, state) {
-          if (state is GetOffersLoading) {
-            return const CircularProgressIndicator();
-          }
-
-          if (state is GetOffersFailure) {
-            return const Text("Failure");
-          }
-
-          if (state is GetOffersSuccess) {
-            return ListView.builder(
-              itemCount: state.records.length,
-              padding: const EdgeInsets.only(
-                left: AppPadding.xl,
-                right: AppPadding.xl,
-                top: AppPadding.xl,
-              ),
-              itemBuilder: (context, index) {
-                final offer = state.records[index];
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: AppPadding.xl),
-                  child: OfferCard(
-                    offer: state.records[index],
-                    child: Column(
-                      children: [
-                        OfferDataWidget(offer: offer),
-                        AppEmptySpace.verticalXl,
-                        AppButton(
-                          label: "Souscrire",
-                          onPressed: () {
-                            _appPathCubit
-                                .pushPage(AppMenus.selectedOfferDetail);
-                            _offersCubit.selectOffer(offer);
-                          },
-                          isEnabled: offer.isAvailable,
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              },
-            );
-          }
-
-          return const SizedBox.shrink();
-        },
+            return const SizedBox.shrink();
+          },
+        ),
       ),
     );
+  }
+
+  ListView _buildOffersList(GetOffersSuccess state) {
+    return ListView.builder(
+      itemCount: state.records.length,
+
+      itemBuilder: (context, index) {
+        final offer = state.records[index];
+        return Padding(
+          padding: const EdgeInsets.only(bottom: AppPadding.xl),
+          child: OfferCard(
+            offer: state.records[index],
+            child: Column(
+              children: [
+                OfferDataWidget(offer: offer),
+                AppEmptySpace.verticalXl,
+                AppButton(
+                  label: "Souscrire",
+                  onPressed: () {
+                    _appPathCubit.pushPage(AppMenus.selectedOfferDetail);
+                    _offersCubit.selectOffer(offer);
+                  },
+                  isEnabled: offer.isAvailable,
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  bool _rebuildCondition(previous, current) {
+    final hasStateTypeChanged = previous.runtimeType != current.runtimeType;
+
+    final bothStateAreSuccess =
+        previous is GetOffersSuccess && current is GetOffersSuccess;
+
+    final hasRecordsChanged =
+        bothStateAreSuccess && previous.records != current.records;
+
+    return hasStateTypeChanged || hasRecordsChanged;
   }
 }

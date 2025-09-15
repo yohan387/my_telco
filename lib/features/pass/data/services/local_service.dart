@@ -23,6 +23,9 @@ class LocalPassDataService
   @override
   Future<List<Pass>> getPasses() async {
     return executeWithLocalExceptionHandler(() async {
+      // Simuler un délai de chargement
+      await Future.delayed(const Duration(seconds: 1));
+
       final jsonList = _prefs.getStringList(SharedPrefKey.pass) ?? [];
 
       return jsonList.map((jsonString) {

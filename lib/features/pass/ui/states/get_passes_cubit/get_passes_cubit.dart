@@ -10,7 +10,10 @@ class GetPassesCubit extends Cubit<GetPassesState> {
   final IPassRepo _passRepo;
   GetPassesCubit(this._passRepo) : super(const GetPassesInitial());
 
-  Future<void> call() async {
+  Future<void> call({bool forceRefresh = false}) async {
+    final currentState = state;
+    if (currentState is GetPassesSuccess && !forceRefresh) return;
+
     emit(const GetPassesLoading());
 
     final result = await _passRepo.getPasses();

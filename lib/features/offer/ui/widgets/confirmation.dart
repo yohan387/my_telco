@@ -6,7 +6,7 @@ import 'package:my_telco/core/constants/enums.dart';
 import 'package:my_telco/core/constants/style.dart';
 import 'package:my_telco/features/common/states/app_path_cubit/app_path_cubit.dart';
 import 'package:my_telco/features/common/ui/widgets/app_button.dart';
-import 'package:my_telco/features/common/ui/widgets/navigation_bar.dart';
+import 'package:my_telco/features/common/ui/widgets/app_bar.dart';
 import 'package:my_telco/features/common/ui/widgets/app_icon.dart';
 
 class ConfirmationWidget extends StatelessWidget {

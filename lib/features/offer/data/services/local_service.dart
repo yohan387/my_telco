@@ -21,6 +21,9 @@ class LocalOfferDataService
   @override
   Future<List<Offer>> getOffers() async {
     return executeWithLocalExceptionHandler(() async {
+      // Simuler un délai de chargement
+      await Future.delayed(const Duration(seconds: 1));
+
       final String response = await rootBundle.loadString(
         'assets/mock_data/forfaits.json',
       );
