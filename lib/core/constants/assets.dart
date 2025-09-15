@@ -36,4 +36,5 @@ abstract final class AppAssetsPngIcons {
   static const String warning = '$_offerBase/warning.png';
   static const String emptyContent = '$_common/empty_content.png';
   static const String profile = '$_dashboard/profile.png';
+  static const String logo = '$_common/logo.png';
 }

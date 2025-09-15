@@ -1,4 +1,4 @@
-package com.example.my_telco
+package com.ntb.mytelco
 
 import io.flutter.embedding.android.FlutterActivity
 
