@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_telco/core/constants/menus_title.dart';
 import 'package:my_telco/core/constants/style.dart';
 import 'package:my_telco/core/constants/app_tab_page_index.dart';
+import 'package:my_telco/core/theme/app_text_styles.dart';
 import 'package:my_telco/features/common/states/app_path_cubit/app_path_cubit.dart';
 import 'package:my_telco/features/common/ui/widgets/app_button.dart';
 import 'package:my_telco/features/common/ui/widgets/app_empty_content.dart';
@@ -35,7 +36,7 @@ class _PassesListState extends State<PassesList> {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
-      onRefresh: () => _getPassesCubit(forceRefresh: true),
+      onRefresh: () => _getPassesCubit(),
       child: Padding(
         padding: const EdgeInsets.only(
           left: AppPadding.xl,
@@ -66,7 +67,9 @@ class _PassesListState extends State<PassesList> {
             }
 
             if (state is GetPassesSuccess) {
-              if (state.records.isEmpty) {
+              final grouped = state.groupedPasses;
+
+              if (grouped.valid.isEmpty && grouped.expired.isEmpty) {
                 return AppEmptyContent(
                   title: "Aucun pass souscrit",
                   userAction: () {
@@ -75,28 +78,66 @@ class _PassesListState extends State<PassesList> {
                 );
               }
 
-              return ListView.builder(
-                itemCount: state.records.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: AppPadding.xl),
-                    child: PassContainer(
-                      pass: state.records[index],
-                      child: AppButton(
-                        label: "Résilier pass",
-                        onPressed: () {
-                          _getPassesCubit.selectPass(state.records[index]);
-                          _appPathCubit.pushPage(AppMenus.cancelPass);
-                        },
-                        backgroundColor: AppColors.transparent,
-                        borderColor: AppColors.black,
-                        textColor: AppColors.black,
+              return ListView(
+                padding: const EdgeInsets.only(bottom: AppPadding.xl),
+                children: [
+                  if (grouped.valid.isNotEmpty) ...[
+                    Text(
+                      "Mes pass actifs (${grouped.validPassCountLabel})",
+                      style: AppTextStyles.heading2,
+                    ),
+                    const SizedBox(height: AppPadding.large),
+
+                    ...grouped.valid.map(
+                      (pass) => Padding(
+                        padding: const EdgeInsets.only(bottom: AppPadding.xl),
+                        child: PassContainer(
+                          pass: pass,
+                          child: AppButton(
+                            label: "Résilier pass",
+                            onPressed: () {
+                              _getPassesCubit.selectPass(pass);
+                              _appPathCubit.pushPage(AppMenus.cancelPass);
+                            },
+                            backgroundColor: AppColors.transparent,
+                            borderColor: AppColors.black,
+                            textColor: AppColors.black,
+                          ),
+                        ),
                       ),
                     ),
-                  );
-                },
+                  ],
+
+                  if (grouped.expired.isNotEmpty) ...[
+                    const SizedBox(height: AppPadding.xl),
+                    Text(
+                      "Mes pass inactifs (${grouped.expiredPassCountLabel})",
+                      style: AppTextStyles.heading2,
+                    ),
+                    const SizedBox(height: AppPadding.large),
+
+                    ...grouped.expired.map(
+                      (pass) => Padding(
+                        padding: const EdgeInsets.only(bottom: AppPadding.xl),
+                        child: PassContainer(
+                          pass: pass,
+                          child: AppButton(
+                            label: "Renouveler pass",
+                            onPressed: () {
+                              _appPathCubit.setTab(AppTabPageIndex.offersPage);
+                            },
+                            backgroundColor: AppColors.transparent,
+                            borderColor: AppColors.black,
+                            textColor: AppColors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ],
               );
             }
+
             return const SizedBox.shrink();
           },
         ),

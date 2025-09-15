@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:my_telco/core/constants/assets.dart';
 import 'package:my_telco/core/constants/enums.dart';
 import 'package:my_telco/features/common/ui/widgets/app_icon.dart';
@@ -31,37 +32,50 @@ class Offer extends Equatable {
 
   static const double _iconSize = 24.0;
 
+  Color get _iconBgColor =>
+      isAvailable ? AppColors.orangeGradiant3 : AppColors.grey;
+
   AppIcon get icon {
     switch (type) {
       case OfferType.voice:
-        return const AppIcon(
-          imgPath: AppAssetsSvgIcons.callOrange,
-          color: AppColors.orangeGradiant3,
+        return AppIcon(
+          imgPath:
+              isAvailable
+                  ? AppAssetsSvgIcons.callOrange
+                  : AppAssetsSvgIcons.call,
+          color: _iconBgColor,
           size: _iconSize,
         );
       case OfferType.internet:
         if (isPopular) {
-          return const AppIcon(
-            imgPath: AppAssetsSvgIcons.all,
-            color: AppColors.orangeGradiant3,
+          return AppIcon(
+            imgPath:
+                isAvailable ? AppAssetsSvgIcons.all : AppAssetsSvgIcons.all,
+            color: _iconBgColor,
             size: _iconSize,
           );
         }
-        return const AppIcon(
-          imgPath: AppAssetsSvgIcons.doubleArrow,
-          color: AppColors.orangeGradiant3,
+        return AppIcon(
+          imgPath:
+              isAvailable
+                  ? AppAssetsSvgIcons.doubleArrow
+                  : AppAssetsSvgIcons.doubleArrow,
+          color: _iconBgColor,
           size: _iconSize,
         );
       case OfferType.premium:
-        return const AppIcon(
+        return AppIcon(
           imgPath: AppAssetsSvgIcons.all,
-          color: AppColors.orangeGradiant3,
+          color: _iconBgColor,
           size: _iconSize,
         );
       case OfferType.weekend:
-        return const AppIcon(
-          imgPath: AppAssetsSvgIcons.wifiOrange,
-          color: AppColors.orangeGradiant3,
+        return AppIcon(
+          imgPath:
+              isAvailable
+                  ? AppAssetsSvgIcons.wifiOrange
+                  : AppAssetsSvgIcons.wifi,
+          color: _iconBgColor,
           size: _iconSize,
         );
     }

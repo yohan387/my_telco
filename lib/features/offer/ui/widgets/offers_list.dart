@@ -39,7 +39,6 @@ class _OffersListState extends State<OffersList> {
         padding: const EdgeInsets.only(
           left: AppPadding.xl,
           right: AppPadding.xl,
-          top: AppPadding.xl,
         ),
         child: BlocConsumer<GetOffersCubit, GetOffersState>(
           buildWhen: _rebuildCondition,
@@ -54,7 +53,10 @@ class _OffersListState extends State<OffersList> {
           },
           builder: (context, state) {
             if (state is GetOffersLoading) {
-              return const AppPlaceholderList(itemCount: 3, height: 216);
+              return const Padding(
+                padding: EdgeInsets.only(top: AppPadding.xl),
+                child: AppPlaceholderList(itemCount: 3, height: 216),
+              );
             }
 
             if (state is GetOffersFailure) {
@@ -79,7 +81,7 @@ class _OffersListState extends State<OffersList> {
   ListView _buildOffersList(GetOffersSuccess state) {
     return ListView.builder(
       itemCount: state.records.length,
-
+      padding: const EdgeInsets.only(top: AppPadding.xl),
       itemBuilder: (context, index) {
         final offer = state.records[index];
         return Padding(

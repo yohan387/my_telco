@@ -16,12 +16,12 @@ final class GetPassesLoading extends GetPassesState {
 }
 
 final class GetPassesSuccess extends GetPassesState {
-  final List<Pass> records;
+  final PassGroup groupedPasses;
   final Pass? selectedPass;
-  const GetPassesSuccess(this.records, {this.selectedPass});
+  const GetPassesSuccess(this.groupedPasses, {this.selectedPass});
 
   @override
-  List<Object?> get props => [records, selectedPass];
+  List<Object?> get props => [groupedPasses, selectedPass];
 }
 
 final class GetPassesFailure extends GetPassesState {

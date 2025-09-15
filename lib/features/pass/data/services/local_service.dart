@@ -6,10 +6,11 @@ import 'package:my_telco/core/mixins/local_source_mixin.dart';
 import 'package:my_telco/core/typedefs.dart';
 import 'package:my_telco/features/common/models/pass.dart';
 import 'package:my_telco/features/offer/data/entities/offer.dart';
+import 'package:my_telco/features/pass/data/models/pass_group.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract interface class ILocalPassDataService {
-  Future<List<Pass>> getPasses();
+  Future<PassGroup> getPasses();
   Future<void> cancelPass(int passId);
 }
 
@@ -21,14 +22,14 @@ class LocalPassDataService
   LocalPassDataService(this._prefs);
 
   @override
-  Future<List<Pass>> getPasses() async {
+  Future<PassGroup> getPasses() async {
     return executeWithLocalExceptionHandler(() async {
-      // Simuler un délai de chargement
-      await Future.delayed(const Duration(seconds: 1));
-
       final jsonList = _prefs.getStringList(SharedPrefKey.pass) ?? [];
 
-      return jsonList.map((jsonString) {
+      final List<Pass> validPass = [];
+      final List<Pass> expiredPass = [];
+
+      for (final jsonString in jsonList) {
         final DynamicMap passJson = jsonDecode(jsonString);
         final DynamicMap offerJson = jsonDecode(passJson['offer']);
 
@@ -49,7 +50,7 @@ class LocalPassDataService
           features: featuresString,
         );
 
-        return Pass(
+        final pass = Pass(
           id: passJson['id'] as int,
           offer: offer,
           activationDate: DateTime.fromMillisecondsSinceEpoch(
@@ -59,7 +60,15 @@ class LocalPassDataService
             passJson['expirationDate'],
           ),
         );
-      }).toList();
+
+        if (pass.remainingDaysValue > 0) {
+          validPass.add(pass);
+        } else {
+          expiredPass.add(pass);
+        }
+      }
+
+      return PassGroup(valid: validPass, expired: expiredPass);
     }, sources: [LocalSourceOption.sharedPref]);
   }
 
