@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_telco/core/constants/enums.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
 class AppIcon extends StatelessWidget {
   final String imgPath;
@@ -20,16 +20,34 @@ class AppIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    final Widget iconWidget;
+
+    switch (type) {
+      case AppIconType.svg:
+        iconWidget = VectorGraphic(
+          loader: AssetBytesLoader(imgPath),
+
+          width: size,
+          height: size,
+        );
+        break;
+      case AppIconType.png:
+        iconWidget = Image.asset(
+          imgPath,
+          width: size,
+          height: size,
+          color: color,
+          colorBlendMode: color != null ? BlendMode.srcIn : BlendMode.dst,
+        );
+        break;
+    }
+
+    return Padding(
       padding: EdgeInsets.all(padding),
-      decoration: BoxDecoration(
-        color: color,
+      child: ClipRRect(
         borderRadius: BorderRadius.circular(12),
+        child: Container(color: color, child: iconWidget),
       ),
-      child:
-          type == AppIconType.svg
-              ? SvgPicture.asset(imgPath, width: size, height: size)
-              : Image.asset(imgPath, width: size, height: size),
     );
   }
 }

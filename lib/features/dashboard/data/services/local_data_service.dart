@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:my_telco/features/dashboard/data/models/customer.dart';
 
@@ -16,7 +17,8 @@ class LocalDashboardDataService implements ILocalDashboardDataService {
       'assets/mock_data/dashboard.json',
     );
 
-    final data = jsonDecode(response);
+    // final data = jsonDecode(response);
+    final data = await compute(jsonDecode, response);
 
     return Customer(
       id: data['id'],
