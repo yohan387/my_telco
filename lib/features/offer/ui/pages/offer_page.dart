@@ -14,9 +14,12 @@ class OfferPage extends StatelessWidget {
       builder: (context, state) {
         if (state.currentPage == AppMenus.offers) {
           return const OffersList();
-        } else if (state.currentPage == AppMenus.selectedOfferDetail) {
+        }
+
+        if (state.currentPage == AppMenus.selectedOfferDetail) {
           return const SelectedOfferRecap();
         }
+
         return const SizedBox.shrink();
       },
     );

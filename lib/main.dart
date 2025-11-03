@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_telco/features/common/ui/main_screen.dart';
 import 'package:my_telco/features/common/states/app_path_cubit/app_path_cubit.dart';
 import 'package:my_telco/core/dependencies_injection.dart';
 import 'package:my_telco/core/theme/app_theme.dart';
+import 'package:my_telco/features/common/ui/splash_screen.dart';
+import 'package:my_telco/features/dashboard/ui/states/cubit/get_dashboard_infos_cubit.dart';
 import 'package:my_telco/features/history/ui/states/get_consumptions_history/get_consumptions_history_cubit.dart';
 import 'package:my_telco/features/offer/ui/states/get_offers_cubit/get_offers_cubit.dart';
 import 'package:my_telco/features/offer/ui/states/subscribe_to_offer/subscribe_to_offer_cubit.dart';
+import 'package:my_telco/features/pass/ui/states/cancel_pass_cubit/cancel_pass_cubit.dart';
+import 'package:my_telco/features/pass/ui/states/get_passes_cubit/get_passes_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,8 +28,18 @@ class MainApp extends StatelessWidget {
         BlocProvider(create: (context) => sl<GetConsumptionsHistoryCubit>()),
         BlocProvider(create: (context) => sl<GetOffersCubit>()),
         BlocProvider(create: (context) => sl<SubscribeToOfferCubit>()),
+        BlocProvider(create: (context) => sl<GetPassesCubit>()),
+        BlocProvider(create: (context) => sl<CancelPassCubit>()),
+        BlocProvider(create: (context) => sl<GetDashboardInfosCubit>()),
       ],
+<<<<<<< HEAD
       child: MaterialApp(theme: AppTheme.lightTheme, home: const MainScreen()),
+=======
+      child: MaterialApp(
+        theme: AppTheme.lightTheme,
+        home: const SplashScreen(),
+      ),
+>>>>>>> 5a394d0bfd9291e16a3e6c6ddb9706819f4dc51f
     );
   }
 }

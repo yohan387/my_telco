@@ -2,6 +2,7 @@ C/C++ Structured Logb
 `
 ^C:\Users\DELL\fvm\versions\3.29.1\packages\flutter_tools\gradle\src\main\groovy\CMakeLists.txtC
 A
+<<<<<<< HEAD
 ?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ÝÝ¡Ë“3§ §Œ¤Ø2d
 b
 `C:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86\additional_project_files.txt	ÝÝ¡Ë“3 Öê“Ë“3a
@@ -26,3 +27,29 @@ X
 VC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86\prefab_config.json	ÝÝ¡Ë“3( Üê“Ë“3_
 ]
 [C:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86\symbol_folder_index.txt	ÝÝ¡Ë“3R Ýê“Ë“3
+=======
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	üçòì”3§ §Œ¤Ø2d
+b
+`C:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86\additional_project_files.txt	üçòì”3 Öê“Ë“3a
+_
+]C:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86\android_gradle_build.json	üçòì”3³ ×ê“Ë“3f
+d
+bC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86\android_gradle_build_mini.json	üçòì”3 Úê“Ë“3S
+Q
+OC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86\build.ninja	üçòì”3àÒ ¡ê“Ë“3W
+U
+SC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86\build.ninja.txt	üçòì”3\
+Z
+XC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86\build_file_index.txt	üçòì”3^ Þê“Ë“3]
+[
+YC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86\compile_commands.json	üçòì”3	a
+_
+]C:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86\compile_commands.json.bin	üçòì”3
+g
+e
+cC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86\metadata_generation_command.txt	üçòì”3± Ûê“Ë“3Z
+X
+VC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86\prefab_config.json	üçòì”3( Üê“Ë“3_
+]
+[C:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86\symbol_folder_index.txt	üçòì”3R Ýê“Ë“3
+>>>>>>> 5a394d0bfd9291e16a3e6c6ddb9706819f4dc51f

@@ -34,3 +34,12 @@ extension Format on int {
     return "$formattedValue FCFA";
   }
 }
+
+extension DateFormatting on DateTime {
+  String toShortFrenchDate() {
+    final day = this.day.toString().padLeft(2, '0');
+    final month = this.month.toString().padLeft(2, '0');
+    final year = this.year.toString();
+    return "$day/$month/$year";
+  }
+}

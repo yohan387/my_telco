@@ -1,4 +1,4 @@
-enum AppIconType { svg, png }
+enum AppIconType { png, svg }
 
 enum OfferType { internet, voice, premium, weekend }
 

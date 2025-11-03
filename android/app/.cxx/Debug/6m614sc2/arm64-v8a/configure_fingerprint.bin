@@ -2,6 +2,7 @@ C/C++ Structured Logb
 `
 ^C:\Users\DELL\fvm\versions\3.29.1\packages\flutter_tools\gradle\src\main\groovy\CMakeLists.txtC
 A
+<<<<<<< HEAD
 ?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	©Ý¡Ë“3§ §Œ¤Ø2j
 h
 fC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\arm64-v8a\additional_project_files.txt	©Ý¡Ë“3 ú¹“Ë“3g
@@ -26,3 +27,29 @@ iC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\arm64-v8a\metad
 \C:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\arm64-v8a\prefab_config.json	©Ý¡Ë“3( Šº“Ë“3e
 c
 aC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\arm64-v8a\symbol_folder_index.txt	©Ý¡Ë“3X Œº“Ë“3
+=======
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	Æçòì”3§ §Œ¤Ø2j
+h
+fC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\arm64-v8a\additional_project_files.txt	Æçòì”3 ú¹“Ë“3g
+e
+cC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\arm64-v8a\android_gradle_build.json	Æçòì”3¿ ý¹“Ë“3l
+j
+hC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\arm64-v8a\android_gradle_build_mini.json	Æçòì”3œ †º“Ë“3Y
+W
+UC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\arm64-v8a\build.ninja	Æçòì”3þÒ €¹“Ë“3]
+[
+YC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\arm64-v8a\build.ninja.txt	Æçòì”3b
+`
+^C:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\arm64-v8a\build_file_index.txt	Æçòì”3^ º“Ë“3c
+a
+_C:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\arm64-v8a\compile_commands.json	Æçòì”3	g
+e
+cC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\arm64-v8a\compile_commands.json.bin	Æçòì”3
+m
+k
+iC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\arm64-v8a\metadata_generation_command.txt	Æçòì”3Ï ˆº“Ë“3`
+^
+\C:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\arm64-v8a\prefab_config.json	Æçòì”3( Šº“Ë“3e
+c
+aC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\arm64-v8a\symbol_folder_index.txt	Ççòì”3X Œº“Ë“3
+>>>>>>> 5a394d0bfd9291e16a3e6c6ddb9706819f4dc51f

@@ -1,11 +1,9 @@
 import 'dart:convert';
-import 'dart:developer';
-
 import 'package:flutter/services.dart';
 import 'package:my_telco/core/constants/enums.dart';
 import 'package:my_telco/core/constants/shared_preferences_keys.dart';
 import 'package:my_telco/core/mixins/local_source_mixin.dart';
-import 'package:my_telco/features/offer/domain/entities/offer.dart';
+import 'package:my_telco/features/offer/data/models/offer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract interface class ILocalOfferDataService {
@@ -23,6 +21,7 @@ class LocalOfferDataService
   @override
   Future<List<Offer>> getOffers() async {
     return executeWithLocalExceptionHandler(() async {
+<<<<<<< HEAD
       final String response = await rootBundle.loadString(
         'assets/mock_data/forfaits.json',
       );
@@ -43,6 +42,31 @@ class LocalOfferDataService
         final List<String> featuresString =
             (item['fonctionnalites'] as List<dynamic>).cast<String>().toList();
 
+=======
+      // Simuler un délai de chargement
+      await Future.delayed(const Duration(seconds: 1));
+
+      final String response = await rootBundle.loadString(
+        'assets/mock_data/forfaits.json',
+      );
+
+      final List<dynamic> data = jsonDecode(response);
+
+      return data.map((item) {
+        final type = item['type'] as String;
+        final offerType =
+            type == 'pass_internet'
+                ? OfferType.internet
+                : type == 'pass_appels'
+                ? OfferType.voice
+                : type == 'pass_premium'
+                ? OfferType.premium
+                : OfferType.weekend;
+
+        final List<String> featuresString =
+            (item['fonctionnalites'] as List<dynamic>).cast<String>().toList();
+
+>>>>>>> 5a394d0bfd9291e16a3e6c6ddb9706819f4dc51f
         return Offer(
           id: item['id'] as String,
           name: item['nom_offre'] as String,
@@ -92,8 +116,11 @@ class LocalOfferDataService
 
       jsonList.add(newPass);
 
+<<<<<<< HEAD
       log(jsonList.last);
 
+=======
+>>>>>>> 5a394d0bfd9291e16a3e6c6ddb9706819f4dc51f
       await _prefs.setStringList(SharedPrefKey.pass, jsonList);
     }, sources: [LocalSourceOption.sharedPref]);
   }

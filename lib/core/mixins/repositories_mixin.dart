@@ -35,13 +35,11 @@ mixin RepositoriesMixin {
             return Left(Failure.localStorage(e));
           case AppErrorType.internal:
             return Left(Failure.internal(e));
-
-          default:
-            return Left(Failure.internal(e));
         }
       } else {
         return Left(
-            Failure.internal(AppException.internal(description: e.toString())));
+          Failure.internal(AppException.internal(description: e.toString())),
+        );
       }
     }
   }
@@ -54,9 +52,6 @@ mixin RepositoriesMixin {
     IConnectionChecker connectionChecker,
     Future<T> Function() action,
   ) {
-    return _execute(
-      action: action,
-      connectionChecker: connectionChecker,
-    );
+    return _execute(action: action, connectionChecker: connectionChecker);
   }
 }

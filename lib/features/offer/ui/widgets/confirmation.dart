@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_telco/core/constants/app_tab_page_index.dart';
 import 'package:my_telco/core/constants/assets.dart';
 import 'package:my_telco/core/constants/enums.dart';
 import 'package:my_telco/core/constants/style.dart';
+import 'package:my_telco/features/common/states/app_path_cubit/app_path_cubit.dart';
 import 'package:my_telco/features/common/ui/widgets/app_button.dart';
-import 'package:my_telco/features/common/ui/widgets/app_common_navigation_bar.dart';
+import 'package:my_telco/features/common/ui/widgets/app_bar.dart';
 import 'package:my_telco/features/common/ui/widgets/app_icon.dart';
 
 class ConfirmationWidget extends StatelessWidget {
@@ -11,6 +14,7 @@ class ConfirmationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appPathCubit = context.read<AppPathCubit>();
     return Scaffold(
       appBar: AppCommonNavigationBar(
         title: "Confirmation",
@@ -57,12 +61,17 @@ class ConfirmationWidget extends StatelessWidget {
             AppEmptySpace.verticalXl,
             AppButton(
               label: "Souscrire un autre pass",
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
             ),
             AppEmptySpace.verticalXl,
             AppButton(
               label: "Retour à l'accueil",
-              onPressed: () {},
+              onPressed: () {
+                appPathCubit.setTab(AppTabPageIndex.dashboardPage);
+                Navigator.of(context).pop();
+              },
               backgroundColor: AppColors.transparent,
               borderColor: AppColors.black,
               textColor: AppColors.black,

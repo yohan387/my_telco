@@ -1,4 +1,5 @@
 import 'dart:convert';
+<<<<<<< HEAD
 
 import 'package:my_telco/core/constants/enums.dart';
 import 'package:my_telco/core/constants/shared_preferences_keys.dart';
@@ -9,6 +10,20 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 abstract interface class ILocalPassDataService {
   Future<List<Pass>> getPasses();
+=======
+
+import 'package:my_telco/core/constants/enums.dart';
+import 'package:my_telco/core/constants/shared_preferences_keys.dart';
+import 'package:my_telco/core/mixins/local_source_mixin.dart';
+import 'package:my_telco/core/typedefs.dart';
+import 'package:my_telco/features/common/models/pass.dart';
+import 'package:my_telco/features/offer/data/models/offer.dart';
+import 'package:my_telco/features/pass/data/models/pass_group.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+abstract interface class ILocalPassDataService {
+  Future<PassGroup> getPasses();
+>>>>>>> 5a394d0bfd9291e16a3e6c6ddb9706819f4dc51f
   Future<void> cancelPass(int passId);
 }
 
@@ -20,6 +35,7 @@ class LocalPassDataService
   LocalPassDataService(this._prefs);
 
   @override
+<<<<<<< HEAD
   Future<List<Pass>> getPasses() async {
     return executeWithLocalExceptionHandler(() async {
       final jsonList = _prefs.getStringList(SharedPrefKey.pass) ?? [];
@@ -29,6 +45,22 @@ class LocalPassDataService
 
         final Map<String, dynamic> offerJson = jsonDecode(json['offer']);
         final offerType = OfferType.values.byName(offerJson['type']);
+=======
+  Future<PassGroup> getPasses() async {
+    return executeWithLocalExceptionHandler(() async {
+      final jsonList = _prefs.getStringList(SharedPrefKey.pass) ?? [];
+
+      final List<Pass> validPass = [];
+      final List<Pass> expiredPass = [];
+
+      for (final jsonString in jsonList) {
+        final DynamicMap passJson = jsonDecode(jsonString);
+        final DynamicMap offerJson = jsonDecode(passJson['offer']);
+
+        final offerType = OfferType.values.byName(offerJson['type']);
+        final List<String> featuresString =
+            (offerJson['features'] as List<dynamic>).cast<String>().toList();
+>>>>>>> 5a394d0bfd9291e16a3e6c6ddb9706819f4dc51f
 
         final offer = Offer(
           id: offerJson['id'],
@@ -40,6 +72,7 @@ class LocalPassDataService
           isAvailable: offerJson['isAvailable'],
           isPopular: offerJson['isPopular'],
           specialIndication: offerJson['specialIndication'],
+<<<<<<< HEAD
           features: List<String>.from(offerJson['features'] ?? []),
         );
 
@@ -54,6 +87,30 @@ class LocalPassDataService
           ),
         );
       }).toList();
+=======
+          features: featuresString,
+        );
+
+        final pass = Pass(
+          id: passJson['id'] as int,
+          offer: offer,
+          activationDate: DateTime.fromMillisecondsSinceEpoch(
+            passJson['activationDate'],
+          ),
+          expirationDate: DateTime.fromMillisecondsSinceEpoch(
+            passJson['expirationDate'],
+          ),
+        );
+
+        if (pass.remainingDaysValue > 0) {
+          validPass.add(pass);
+        } else {
+          expiredPass.add(pass);
+        }
+      }
+
+      return PassGroup(valid: validPass, expired: expiredPass);
+>>>>>>> 5a394d0bfd9291e16a3e6c6ddb9706819f4dc51f
     }, sources: [LocalSourceOption.sharedPref]);
   }
 
@@ -64,7 +121,11 @@ class LocalPassDataService
 
       final updatedList =
           jsonList.where((jsonString) {
+<<<<<<< HEAD
             final Map<String, dynamic> json = jsonDecode(jsonString);
+=======
+            final DynamicMap json = jsonDecode(jsonString);
+>>>>>>> 5a394d0bfd9291e16a3e6c6ddb9706819f4dc51f
             return json['id'] != passId;
           }).toList();
 

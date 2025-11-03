@@ -1,8 +1,12 @@
 import 'package:my_telco/core/mixins/repositories_mixin.dart';
 import 'package:my_telco/core/typedefs.dart';
-import 'package:my_telco/features/offer/domain/entities/offer.dart';
+import 'package:my_telco/features/offer/data/models/offer.dart';
 import 'package:my_telco/features/offer/data/services/local_service.dart';
-import 'package:my_telco/features/offer/domain/repo/offer_repo.dart';
+
+abstract interface class IOfferRepo {
+  FutureResult<List<Offer>> getOffers();
+  FutureVoidResult subscribeToOffer(Offer offer);
+}
 
 class OfferRepo with RepositoriesMixin implements IOfferRepo {
   final ILocalOfferDataService _localOffersDataService;

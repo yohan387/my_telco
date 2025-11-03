@@ -1,6 +1,9 @@
 const String _navBarBase = "assets/nav_bar";
 const String _historyBase = "assets/history";
 const String _offerBase = "assets/forfaits";
+const String _common = "assets/common";
+const String _dashboard = "assets/dashboard";
+const String _pngFiles = "assets/png_files";
 
 abstract final class AppAssetsSvgIcons {
   static const String homeOrange = '$_navBarBase/accueil_orange.svg';
@@ -23,10 +26,22 @@ abstract final class AppAssetsSvgIcons {
   static const String expiration = '$_offerBase/expiration.svg';
   static const String doubleArrow = '$_offerBase/pass.svg';
   static const String all = '$_offerBase/tous.svg';
+
+  static const String puce = '$_dashboard/puce.svg';
+  static const String balance = '$_dashboard/solde.svg';
 }
 
 abstract final class AppAssetsPngIcons {
+<<<<<<< HEAD
   static const String home = '$_navBarBase/accueil.png';
   static const String success = '$_offerBase/success.png';
   static const String warning = '$_offerBase/warning.png';
+=======
+  static const String home = '$_pngFiles/accueil.png';
+  static const String success = '$_pngFiles/success.png';
+  static const String warning = '$_pngFiles/warning.png';
+  static const String emptyContent = '$_pngFiles/empty_content.png';
+  static const String profile = '$_pngFiles/profile.png';
+  static const String logo = '$_pngFiles/logo.png';
+>>>>>>> 5a394d0bfd9291e16a3e6c6ddb9706819f4dc51f
 }

@@ -6,7 +6,7 @@ import 'package:my_telco/core/theme/app_text_styles.dart';
 import 'package:my_telco/core/utils/extensions.dart';
 import 'package:my_telco/features/common/ui/widgets/app_button.dart';
 import 'package:my_telco/features/common/ui/widgets/app_icon.dart';
-import 'package:my_telco/features/offer/domain/entities/offer.dart';
+import 'package:my_telco/features/offer/data/models/offer.dart';
 import 'package:my_telco/features/offer/ui/states/get_offers_cubit/get_offers_cubit.dart';
 import 'package:my_telco/features/offer/ui/states/subscribe_to_offer/subscribe_to_offer_cubit.dart';
 import 'package:my_telco/features/offer/ui/widgets/confirmation.dart';
@@ -23,9 +23,7 @@ class SelectedOfferRecap extends StatelessWidget {
         if (state is SubscribeToOfferSuccess) {
           Navigator.push(
             context,
-            MaterialPageRoute(
-              builder: (context) => const ConfirmationWidget(),
-            ),
+            MaterialPageRoute(builder: (context) => const ConfirmationWidget()),
           );
         }
         if (state is SubscribeToOfferFailure) {}
@@ -61,13 +59,13 @@ class SelectedOfferRecap extends StatelessWidget {
                       return AppButton(
                         label: "Souscrire",
                         onPressed: () {
-                          context
-                              .read<SubscribeToOfferCubit>()
-                              .call(selectedOffer);
+                          context.read<SubscribeToOfferCubit>().call(
+                            selectedOffer,
+                          );
                         },
                       );
                     },
-                  )
+                  ),
                 ],
               );
             }
@@ -79,9 +77,7 @@ class SelectedOfferRecap extends StatelessWidget {
   }
 
   OfferCard _buildOfferDescription(Offer offer) {
-    return OfferCard(
-      child: OfferDataWidget(offer: offer),
-    );
+    return OfferCard(child: OfferDataWidget(offer: offer));
   }
 
   OfferCard _buildPaymentRecap(Offer offer) {
@@ -101,14 +97,11 @@ class SelectedOfferRecap extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    "Balance",
-                    style: AppTextStyles.bodyTextPrimary,
-                  ),
+                  const Text("Balance", style: AppTextStyles.bodyTextPrimary),
                   Text(
                     offer.price.formatAsAmount(),
                     style: AppTextStyles.bodyText3,
-                  )
+                  ),
                 ],
               ),
             ],
@@ -122,14 +115,11 @@ class SelectedOfferRecap extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                "Montant",
-                style: AppTextStyles.bodyTextPrimary,
-              ),
+              const Text("Montant", style: AppTextStyles.bodyTextPrimary),
               Text(
                 offer.price.formatAsAmount(),
                 style: AppTextStyles.bodyText3,
-              )
+              ),
             ],
           ),
           AppEmptySpace.verticalNormal,
@@ -151,7 +141,7 @@ class SelectedOfferRecap extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: AppColors.orange,
                 ),
-              )
+              ),
             ],
           ),
         ],

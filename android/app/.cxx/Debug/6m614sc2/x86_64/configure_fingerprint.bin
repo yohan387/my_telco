@@ -2,6 +2,7 @@ C/C++ Structured Logb
 `
 ^C:\Users\DELL\fvm\versions\3.29.1\packages\flutter_tools\gradle\src\main\groovy\CMakeLists.txtC
 A
+<<<<<<< HEAD
 ?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	öÝ¡Ë“3§ §Œ¤Ø2g
 e
 cC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86_64\additional_project_files.txt	öÝ¡Ë“3 Ýÿ“Ë“3d
@@ -26,3 +27,29 @@ fC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86_64\metadata
 YC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86_64\prefab_config.json	öÝ¡Ë“3( ãÿ“Ë“3b
 `
 ^C:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86_64\symbol_folder_index.txt	öÝ¡Ë“3U äÿ“Ë“3
+=======
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	‘èòì”3§ §Œ¤Ø2g
+e
+cC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86_64\additional_project_files.txt	’èòì”3 Ýÿ“Ë“3d
+b
+`C:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86_64\android_gradle_build.json	’èòì”3¹ ßÿ“Ë“3i
+g
+eC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86_64\android_gradle_build_mini.json	’èòì”3– âÿ“Ë“3V
+T
+RC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86_64\build.ninja	’èòì”3ïÒ µÿ“Ë“3Z
+X
+VC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86_64\build.ninja.txt	’èòì”3_
+]
+[C:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86_64\build_file_index.txt	’èòì”3^ åÿ“Ë“3`
+^
+\C:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86_64\compile_commands.json	’èòì”3	d
+b
+`C:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86_64\compile_commands.json.bin	’èòì”3
+j
+h
+fC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86_64\metadata_generation_command.txt	’èòì”3À ãÿ“Ë“3]
+[
+YC:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86_64\prefab_config.json	’èòì”3( ãÿ“Ë“3b
+`
+^C:\fluttersrc\projects\my_telco\android\app\.cxx\Debug\6m614sc2\x86_64\symbol_folder_index.txt	’èòì”3U äÿ“Ë“3
+>>>>>>> 5a394d0bfd9291e16a3e6c6ddb9706819f4dc51f

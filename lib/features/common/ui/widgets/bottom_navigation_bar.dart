@@ -14,24 +14,29 @@ class AppBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80,
+      height: 84,
       color: Colors.transparent,
-      child: ClipRRect(
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(16),
-          topRight: Radius.circular(16),
+      padding: const EdgeInsets.only(top: 0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(24),
+            topRight: Radius.circular(24),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: const Color.fromARGB(255, 8, 0, 0).withAlpha(10),
+              offset: const Offset(0, -2),
+              blurRadius: 8,
+              spreadRadius: 0.2,
+            ),
+          ],
         ),
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: const Color.fromARGB(255, 8, 0, 0).withOpacity(1),
-                offset: const Offset(0, -16),
-                blurRadius: 8,
-                spreadRadius: 10,
-              ),
-            ],
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(24),
+            topRight: Radius.circular(24),
           ),
           child: NavigationBar(
             selectedIndex: currentPageIndex,
@@ -40,48 +45,57 @@ class AppBottomNavigationBar extends StatelessWidget {
             destinations: [
               NavigationDestination(
                 icon: AppIcon(
-                  imgPath: currentPageIndex == _PageIndex.dashboardPage
-                      ? AppAssetsSvgIcons.homeOrange
-                      : AppAssetsPngIcons.home,
-                  color: currentPageIndex == _PageIndex.dashboardPage
-                      ? _iconColor
-                      : null,
-                  type: currentPageIndex == _PageIndex.dashboardPage
-                      ? AppIconType.svg
-                      : AppIconType.png,
+                  imgPath:
+                      currentPageIndex == AppTabPageIndex.dashboardPage
+                          ? AppAssetsSvgIcons.homeOrange
+                          : AppAssetsPngIcons.home,
+                  color:
+                      currentPageIndex == AppTabPageIndex.dashboardPage
+                          ? _iconColor
+                          : null,
+                  type:
+                      currentPageIndex == AppTabPageIndex.dashboardPage
+                          ? AppIconType.svg
+                          : AppIconType.png,
                 ),
                 label: 'Accueil',
               ),
               NavigationDestination(
                 icon: AppIcon(
-                  imgPath: currentPageIndex == _PageIndex.offersPage
-                      ? AppAssetsSvgIcons.offerOrange
-                      : AppAssetsSvgIcons.offer,
-                  color: currentPageIndex == _PageIndex.offersPage
-                      ? _iconColor
-                      : null,
+                  imgPath:
+                      currentPageIndex == AppTabPageIndex.offersPage
+                          ? AppAssetsSvgIcons.offerOrange
+                          : AppAssetsSvgIcons.offer,
+                  color:
+                      currentPageIndex == AppTabPageIndex.offersPage
+                          ? _iconColor
+                          : null,
                 ),
                 label: 'Forfait',
               ),
               NavigationDestination(
                 icon: AppIcon(
-                  imgPath: currentPageIndex == _PageIndex.subscriptionPage
-                      ? AppAssetsSvgIcons.passOrange
-                      : AppAssetsSvgIcons.pass,
-                  color: currentPageIndex == _PageIndex.subscriptionPage
-                      ? _iconColor
-                      : null,
+                  imgPath:
+                      currentPageIndex == AppTabPageIndex.subscriptionPage
+                          ? AppAssetsSvgIcons.passOrange
+                          : AppAssetsSvgIcons.pass,
+                  color:
+                      currentPageIndex == AppTabPageIndex.subscriptionPage
+                          ? _iconColor
+                          : null,
                 ),
                 label: 'Mes pass',
               ),
               NavigationDestination(
                 icon: AppIcon(
-                  imgPath: currentPageIndex == _PageIndex.historyPage
-                      ? AppAssetsSvgIcons.historyOrange
-                      : AppAssetsSvgIcons.history,
-                  color: currentPageIndex == _PageIndex.historyPage
-                      ? _iconColor
-                      : null,
+                  imgPath:
+                      currentPageIndex == AppTabPageIndex.historyPage
+                          ? AppAssetsSvgIcons.historyOrange
+                          : AppAssetsSvgIcons.history,
+                  color:
+                      currentPageIndex == AppTabPageIndex.historyPage
+                          ? _iconColor
+                          : null,
                 ),
                 label: 'Historique',
               ),

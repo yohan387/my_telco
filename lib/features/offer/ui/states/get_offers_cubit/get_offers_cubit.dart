@@ -2,8 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import 'package:my_telco/core/errors/failures.dart';
-import 'package:my_telco/features/offer/domain/entities/offer.dart';
-import 'package:my_telco/features/offer/domain/repo/offer_repo.dart';
+import 'package:my_telco/features/offer/data/models/offer.dart';
+import 'package:my_telco/features/offer/data/repo/offers_repo.dart';
 
 part 'get_offers_state.dart';
 
@@ -11,7 +11,10 @@ class GetOffersCubit extends Cubit<GetOffersState> {
   final IOfferRepo _offerRepo;
   GetOffersCubit(this._offerRepo) : super(const GetOffersInitial());
 
-  Future<void> call() async {
+  Future<void> call({bool forceRefresh = false}) async {
+    final currentState = state;
+    if (currentState is GetOffersSuccess && !forceRefresh) return;
+
     emit(const GetOffersLoading());
 
     final result = await _offerRepo.getOffers();
@@ -25,10 +28,7 @@ class GetOffersCubit extends Cubit<GetOffersState> {
   void selectOffer(Offer offer) {
     final currentState = state;
     if (currentState is GetOffersSuccess) {
-      emit(GetOffersSuccess(
-        currentState.records,
-        selectedOffer: offer,
-      ));
+      emit(GetOffersSuccess(currentState.records, selectedOffer: offer));
     }
   }
 }
